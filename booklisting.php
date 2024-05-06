@@ -16,10 +16,10 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Home Page</a>
+                    <a href="#" class="nav-link">Home Page</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Book list</a>
+                    <a href="#" class="nav-link active">Book list</a>
                 </li>
                
             </ul>
@@ -32,9 +32,30 @@
         <div class="container">
             <div class="d-flex">
                 <div>
-                    <h1>Hello World</h1>
-                    </h1>
-                    <p>Peepee poopoo</p>
+                    <h1>Book Listings</h1>
+                    <div class="container">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Book ID</th>
+                                    <th scope="col">Book ID</th>
+                                    <th scope="col">Book ID</th>
+                                    <th scope="col">Book ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>A</td>
+                                    <td>A</td>
+                                    <td>A</td>
+                                    <td>A</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
