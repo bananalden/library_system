@@ -4,33 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="bg-dark col-auto col-md-2 min-vh-100 p-2">
-                <a class="d- flex text-decoration-none align-items-center">
-                    <i class="fs-5 fa fa-gauge"></i><span class="fs-4 d-none d-sm-inline">SideMenu</span>
-                </a>
-                <ul class="nav nav-pills flex-column mt-2">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Link</a>
-                    </li>
-                    <li class="nav-item disabled">
-                        <a href="#" class="nav-link">Disabled</a>
-                    </li>
-                    </ul>
-
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+        <a href="#" class="navbar-brand">ACLC Library System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home Page</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Book list</a>
+                </li>
+               
+            </ul>
+            <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
+    </nav>
+        </div>
+        </div> 
+    </nav>
+    <section class="bg-light text-dark p-5 text-left">
+        <div class="container">
+            <div class="d-flex">
+                <div>
+                    <h1>Hello World</h1>
+                    <p>Peepee poopoo</p>
+                </div>
             </div>
         </div>
-    </div>
-
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
