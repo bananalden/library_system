@@ -19,7 +19,7 @@
                     <a href="#" class="nav-link active">Home Page</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Book list</a>
+                    <a href="booklisting.php" class="nav-link">Book list</a>
                 </li>
                
             </ul>

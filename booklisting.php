@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Home Page</a>
+                    <a href="mainpage.php" class="nav-link">Home Page</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link active">Book list</a>
