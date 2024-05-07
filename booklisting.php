@@ -21,7 +21,9 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link active">Book list</a>
                 </li>
-               
+                <li class="nav-item">
+                    <a href="#" class="nav-link">User List</a>
+                </li>
             </ul>
             <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
     </nav>
@@ -33,24 +35,25 @@
             <div class="d-flex">
                 <div>
                     <h1>Book Listings</h1>
+                    <form action="">
+                        <label for="">Search for Book ID, Author or Title</label><br>
+                        <input type="text" name="" id="">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </form>
                     <div class="container">
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Book ID</th>
-                                    <th scope="col">Book ID</th>
-                                    <th scope="col">Book ID</th>
-                                    <th scope="col">Book ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Author</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>A</td>
-                                    <td>A</td>
-                                    <td>A</td>
-                                    <td>A</td>
+                                    <td>Moby Dick or The Whale</td>
+                                    <td>Herman Melville</td>
                                 </tr>
 
                             </tbody>

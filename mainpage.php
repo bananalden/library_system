@@ -21,6 +21,9 @@
                 <li class="nav-item">
                     <a href="booklisting.php" class="nav-link">Book list</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">User List</a>
+                </li>
                
             </ul>
             <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
