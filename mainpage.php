@@ -33,12 +33,16 @@
     </nav>
     <section class="bg-light text-dark p-5 text-left">
         <div class="container">
-            <div class="d-flex">
-                <div>
-                    <h1>Hello World</h1>
-                    </h1>
-                    <p>Peepee poopoo</p>
+           <div class="container">
+                <div class="row">
+                    <div class="col">
+                        A
+                    </div>
+                    <div class="col">
+                        A
+                    </div>
                 </div>
+           </div>
             </div>
         </div>
     </section>
