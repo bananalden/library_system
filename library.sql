@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 03:17 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 08, 2024 at 05:36 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,14 +45,14 @@ CREATE TABLE `booklist` (
   `bookname` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `year` int(255) NOT NULL
+  `yearpublished` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `booklist`
 --
 
-INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `year`) VALUES
+INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished`) VALUES
 (9781847496447, 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018),
 (9780747548478, 'Holes', 'Louis Sachar', 'Fiction', 2000),
 (9786214171217, 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018),
