@@ -19,27 +19,27 @@
 
         <div class="user-details">
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="First Name">
+                <input type="text" class="input-box" placeholder="Enter First Name">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Last Name">
+                <input type="text" class="input-box" placeholder="Enter Last Name">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="User Name">
+                <input type="text" class="input-box" placeholder="Enter User Name">
             </div>
 
             <div class="user-container">
-                <input type="password" class="input-box" placeholder="Password">
+                <input type="password" class="input-box" placeholder="Enter Password">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Roll No">
+                <input type="text" class="input-box" placeholder="Enter Roll No.">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Email">
+                <input type="text" class="input-box" placeholder="Enter Email">
             </div>
         </div>
 
