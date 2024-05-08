@@ -36,11 +36,9 @@
                 <div>
                     <!-- ========== Search Form Start ========== -->
                     <h1>Book Listings</h1>
-                    <form action="" method="get">
+                    <form action="">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="search" value="<?php if (isset($_GET['search'])) {
-                                                                                                echo $_GET['search'];
-                                                                                            } ?>" placeholder="Search using ISBN, Title or Author">
+                            <input type="text" class="form-control" name="search" id="">
                             <button type="submit" class="btn btn-primary">Search</button>
 
                         </div>
@@ -108,42 +106,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php 
-                                    include('backend/database.php');
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Moby Dick or The Whale</td>
+                                        <td>Herman Melville</td>
+                                        <td>Fiction</td>
+                                        <td>2018</td>
+                                    </tr>
 
-                                    if(isset($_GET['search']))
-                                    {
-                                        $filtervalues = $_GET['search'];
-                                        $query = "SELECT * FROM booklist WHERE CONCAT(isbn,bookname,author,category,yearpublished) LIKE '%$filtervalues%' ";
-                                        $query_run = mysqli_query($conn, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $items)
-                                            {
-                                                ?>
-                                                <tr>
-                                                    <td><?= $items['isbn']; ?></td>
-                                                    <td><?= $items['bookname']; ?></td>
-                                                    <td><?= $items['author']; ?></td>
-                                                    <td><?= $items['category']; ?></td>
-                                                    <td><?= $items['yearpublished']; ?></td>
-                                                </tr>
-                                                <?php
-                                            }
-                                        }
-                                        else
-                                        {
-                                            ?>
-                                                <tr>
-                                                    <td colspan="5">Record does not exist</td>
-                                                    
-                                                </tr>
-                                            <?php
-                                        }
-                                    }
-                                ?>
-                            </tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
