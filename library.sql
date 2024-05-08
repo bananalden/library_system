@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 02:46 AM
+-- Generation Time: May 08, 2024 at 03:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `booklist` (
-  `isbn` varchar(255) NOT NULL,
+  `isbn` bigint(255) NOT NULL,
   `bookname` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
@@ -53,10 +53,10 @@ CREATE TABLE `booklist` (
 --
 
 INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `year`) VALUES
-('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018),
-('9780747548478', 'Holes', 'Louis Sachar', 'Fiction', 2000),
-('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018),
-('9789719807698', 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017);
+(9781847496447, 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018),
+(9780747548478, 'Holes', 'Louis Sachar', 'Fiction', 2000),
+(9786214171217, 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018),
+(9789719807698, 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
