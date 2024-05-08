@@ -123,7 +123,7 @@
                                             {
                                                 ?>
                                                 <tr>
-                                                    <td><?= $items['isbn']; ?></td>
+                                                    <th scope="row"><?= $items['isbn']; ?></td>
                                                     <td><?= $items['bookname']; ?></td>
                                                     <td><?= $items['author']; ?></td>
                                                     <td><?= $items['category']; ?></td>
