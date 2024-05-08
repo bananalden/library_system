@@ -34,12 +34,38 @@
         <div class="container">
             <div class="d-flex">
                 <div>
+                    <!-- ========== Search Form Start ========== -->
                     <h1>Book Listings</h1>
                     <form action="">
                         <label for="">Search for Book ID, Author or Title</label><br>
                         <input type="text" name="" id="">
                         <button type="button" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
                     </form>
+     
+                    <!-- ========== Search Form End ========== -->
+<!-- Modal -->
+<div class="modal fade" id="insertmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                    <!-- ========== Table Section Start ========== -->
                     <div class="container">
                         <table class="table">
                             <thead class="thead-dark">
@@ -59,6 +85,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- ========== Table Section End ========== -->
                 </div>
             </div>
         </div>
