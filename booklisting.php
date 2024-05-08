@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
 </head>
 
 <body>
+    <!-- =================NAVBAR SECTION ================-->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
             <a href="mainpage.php" class="navbar-brand">ACLC Library System</a>
@@ -30,75 +32,27 @@
     </div>
     </div>
     </nav>
+     <!-- =================NAVBAR SECTION END================-->
     <section class="bg-light text-dark p-5 text-left">
         <div class="container">
             <div class="d-flex">
                 <div>
                     <!-- ========== Search Form Start ========== -->
                     <h1>Book Listings</h1>
-                    <form action="" method="get">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="search" value="<?php if (isset($_GET['search'])) {
-                                                                                                echo $_GET['search'];
-                                                                                            } ?>" placeholder="Search using ISBN, Title or Author">
-                            <button type="submit" class="btn btn-primary">Search</button>
-
-                        </div>
-                        <button type="button" class="btn btn-primary float-left" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
-                    </form>
-
+                    
                     <!-- ========== Search Form End ========== -->
-                    <!-- Modal -->
-                    <div class="modal fade" id="insertmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Enter new book details</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="" method="post">
-                                        <div class="form-group mb-3">
-                                            <label>ISBN</label>
-                                            <input type="text" class="form-control" placeholder="Enter ISBN">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Title</label>
-                                            <input type="text" class="form-control" placeholder="Enter Title">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Author</label>
-                                            <input type="text" class="form-control" placeholder="Enter Author Name">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Category</label>
-                                            <select class="form-select">
-                                                <option value="1">Fiction</option>
-                                                <option value="2">Non-Fiction</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Year Published</label>
-                                            <input type="text" class="form-control" placeholder="Enter Year of Publication">
-                                        </div>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Modal -->
 
 
 
                     <!-- ========== Table Section Start ========== -->
-                    <div class="col-md-12">
+                    <div class="col-md-12 p-20">
                         <div class="container">
-                            <table class="table">
-                                <thead class="thead-dark">
+                        
+                           
+                            <table id="myTable" class="table table-bordered">
+                            <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">ISBN</th>
                                         <th scope="col">Title</th>
@@ -106,44 +60,37 @@
                                         <th scope="col">Category</th>
                                         <th scope="col">Year Published</th>
                                     </tr>
-                                </thead>
+                            </thead>
                                 <tbody>
                                 <?php 
-                                    include('backend/database.php');
+                            require('backend/database.php'); 
+                            $query = "SELECT * FROM booklist";
+                            $run_query = mysqli_query($conn, $query);
 
-                                    if(isset($_GET['search']))
-                                    {
-                                        $filtervalues = $_GET['search'];
-                                        $query = "SELECT * FROM booklist WHERE CONCAT(isbn,bookname,author,category,yearpublished) LIKE '%$filtervalues%' ";
-                                        $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($run_query) > 0)
+                            {
+                                foreach($run_query as $row)
+                                {
+                                    ?>
 
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $items)
-                                            {
-                                                ?>
-                                                <tr>
-                                                    <th scope="row"><?= $items['isbn']; ?></td>
-                                                    <td><?= $items['bookname']; ?></td>
-                                                    <td><?= $items['author']; ?></td>
-                                                    <td><?= $items['category']; ?></td>
-                                                    <td><?= $items['yearpublished']; ?></td>
-                                                </tr>
-                                                <?php
-                                            }
-                                        }
-                                        else
-                                        {
-                                            ?>
-                                                <tr>
-                                                    <td colspan="5">Record does not exist</td>
-                                                    
-                                                </tr>
-                                            <?php
-                                        }
-                                    }
-                                ?>
-                            </tbody>
+                                    <tr>
+                                        <th scope="row"><?=$row['isbn'] ?></th>
+                                        <td><?=$row['bookname'] ?></td>
+                                        <td><?=$row['author'] ?></td>
+                                        <td><?=$row['category'] ?></td>
+                                        <td><?=$row['yearpublished'] ?></td>
+                                    </tr>
+                    <?php
+
+                                }
+                            }
+                            
+                            else
+                            {
+
+                            }
+                                  ?> 
+                                </tbody> 
                             </table>
                         </div>
                     </div>
@@ -154,7 +101,15 @@
             </div>
         </div>
     </section>
+    <!-- ######   SCRIPTS HERE     -######-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });
+</script>
 </body>
 
 </html>
