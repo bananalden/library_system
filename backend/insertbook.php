@@ -20,20 +20,34 @@ if (isset($_POST["insertdata"])) {
             exit();
         }
 
-        else{
-            if(!validateNumberDigits($yearpublished, $digitforYear))
+        else if(!validateNumberDigits($yearpublished, $digitforYear))
             {
                 header('location: ../booklisting.php?error=1');
                 exit();
             }
+        
+        else{
+            
 
-            else{
-               
+            $sql = "INSERT INTO booklist (isbn, bookname, author, category, yearpublished) VALUES ('$isbn', '$title', '$author', '$category','$yearpublished')";
+
+            if ($conn->query($sql) === TRUE) {
+                header('location: ../booklisting.php?error=3');
+            } else {
+                header('location: ../booklisting.php?error=4');
             }
+            
+
+
+        }
+
+
+
+            
         }
         
     
-} 
+
 
 else {
 
