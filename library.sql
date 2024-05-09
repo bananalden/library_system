@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 05:36 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: May 09, 2024 at 12:01 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `booklist` (
-  `isbn` bigint(255) NOT NULL,
+  `isbn` varchar(255) NOT NULL,
   `bookname` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
@@ -53,10 +53,11 @@ CREATE TABLE `booklist` (
 --
 
 INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished`) VALUES
-(9781847496447, 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018),
-(9780747548478, 'Holes', 'Louis Sachar', 'Fiction', 2000),
-(9786214171217, 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018),
-(9789719807698, 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017);
+('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018),
+('9780747548478', 'Holes', 'Louis Sachar', 'Fiction', 2000),
+('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018),
+('9789719807698', 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017),
+('9999999999999', 'Wuthering Heights', 'Emily Bronte', 'Fiction', 2010);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
