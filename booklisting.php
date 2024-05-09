@@ -48,7 +48,7 @@
 
 
           <!-- ========== Table Section Start ========== -->
-          <div class="col-md-12 p-20">
+          <div class="column">
             <div class="container">
 
 
@@ -60,6 +60,8 @@
                     <th scope="col">Author</th>
                     <th scope="col">Category</th>
                     <th scope="col">Year Published</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -78,6 +80,11 @@
                         <td><?= $row['author'] ?></td>
                         <td><?= $row['category'] ?></td>
                         <td><?= $row['yearpublished'] ?></td>
+                        <td>ONSITE</td>
+                        <td>
+                          <button type="button" class="btn btn-success editbtn">EDIT</button>
+                          <button type="button" class="btn btn-danger">DELETE</button>
+                        </td>
                       </tr>
                   <?php
 
@@ -92,7 +99,7 @@
 
 
         </div>
-
+        <!-- ########################### INSERT BOOK MODAL START ##################################-->
         <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -103,8 +110,8 @@
                 </button>
               </div>
 
-            <div class="modal-body">
-            <form action="backend/insertbook.php" method="post">
+              <div class="modal-body">
+                <form action="backend/insertbook.php" method="post">
                   <div class="form-group">
                     <label>ISBN</label>
                     <input type="number" name="isbn" class="form-control" required></input>
@@ -120,8 +127,8 @@
                   <div class="form-group">
                     <label>Category</label>
                     <select name="category" class="form-control">
-                        <option value="Fiction">Fiction</option>
-                        <option value="Non-Fiction">Non-Fiction</option>
+                      <option value="Fiction">Fiction</option>
+                      <option value="Non-Fiction">Non-Fiction</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -134,23 +141,78 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
               </div>
-            </form>
+              </form>
+              <!-- ########################### INSERT BOOK MODAL END ##################################-->
 
+              <!-- ########################### EDIT BOOK MODAL START ##################################-->
+              <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Insert Book Details Here</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-body">
+                      <form action="backend/" method="post">
+                        <div class="form-group">
+                          <label>ISBN</label>
+                          <input type="number" name="isbn" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                          <label>Title</label>
+                          <input type="text" name="title" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                          <label>Author</label>
+                          <input type="text" name="author" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                          <label>Category</label>
+                          <select name="category" class="form-control">
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Year Published</label>
+                          <input type="number" name="yearpublished" class="form-control" required></input>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </form>
+                    <!-- ########################### EDIT BOOK MODAL END ##################################-->
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
   </section>
   <!-- ######   SCRIPTS HERE     -######-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable();
+
+      $('.editbtn').on('click', function() {
+
+        $('#editmodal').modal('show');
+
+      })
+
+
     });
   </script>
+  <script typ="text/javascript" src="backend/booklisting.js"></script>
 </body>
 
 </html>
