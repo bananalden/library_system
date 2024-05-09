@@ -43,6 +43,15 @@
             </div>
         </div>
 
+        <div id="terms-condition" class="d-flex text-align-center justify-content-center ">
+            <div class="form-check w-25 mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3" style="color: whitesmoke; font-size: 15px; cursor: pointer;">
+                    I accept all terms & conditions
+                </label>
+            </div>
+        </div>
+
 
         <div class="button">
             <button class="custom-button">Sign in</button>

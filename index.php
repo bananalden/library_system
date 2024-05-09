@@ -34,7 +34,7 @@
                     Remember me
                 </label>
             </div>
-            <p href="#!" class="text-light">Forgot password?</p>
+            <p href="#!" class="text-light" style="cursor: pointer;">Forgot password?</p>
         </div>
 
         <p id="register" class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a href="#!"
