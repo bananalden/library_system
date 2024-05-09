@@ -60,7 +60,6 @@
                     <th scope="col">Author</th>
                     <th scope="col">Category</th>
                     <th scope="col">Year Published</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -80,7 +79,6 @@
                         <td><?= $row['author'] ?></td>
                         <td><?= $row['category'] ?></td>
                         <td><?= $row['yearpublished'] ?></td>
-                        <td>ONSITE</td>
                         <td>
                           <button type="button" class="btn btn-success editbtn">EDIT</button>
                           <button type="button" class="btn btn-danger">DELETE</button>
@@ -142,6 +140,9 @@
                 <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
               </div>
               </form>
+                </div>
+                </div>
+                </div>
               <!-- ########################### INSERT BOOK MODAL END ##################################-->
 
               <!-- ########################### EDIT BOOK MODAL START ##################################-->
@@ -149,42 +150,39 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Insert Book Details Here</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
 
                     <div class="modal-body">
+                      <input type="hidden" name="isbn_update" id="isbn_update">
                       <form action="backend/" method="post">
                         <div class="form-group">
-                          <label>ISBN</label>
-                          <input type="number" name="isbn" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
                           <label>Title</label>
-                          <input type="text" name="title" class="form-control" required></input>
+                          <input type="text" name="title" id="title_update" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                           <label>Author</label>
-                          <input type="text" name="author" class="form-control" required></input>
+                          <input type="text" name="author" id="author_update" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                           <label>Category</label>
-                          <select name="category" class="form-control">
+                          <select name="category" id="category_update" class="form-control">
                             <option value="Fiction">Fiction</option>
                             <option value="Non-Fiction">Non-Fiction</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label>Year Published</label>
-                          <input type="number" name="yearpublished" class="form-control" required></input>
+                          <input type="number" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
                         </div>
 
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
+                      <button type="submit" name="updatedata" class="btn btn-primary">Add Book</button>
                     </div>
                     </form>
                     <!-- ########################### EDIT BOOK MODAL END ##################################-->
@@ -206,6 +204,19 @@
       $('.editbtn').on('click', function() {
 
         $('#editmodal').modal('show');
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function(){
+          return $(this).text();
+        })
+
+        console.log(data);
+
+        $('#isbn_update').val(data[0]);
+        $('#title_update').val(data[0]);
+        $('#author_update').val(data[2]);
+        $('#category_update').val(data[3]);
+        $('#yearpublished_update').val(data[4])
 
       })
 
