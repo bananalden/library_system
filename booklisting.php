@@ -107,15 +107,15 @@
             <form action="backend/insertbook.php" method="post">
                   <div class="form-group">
                     <label>ISBN</label>
-                    <input type="text" name="isbn" class="form-control"></input>
+                    <input type="number" name="isbn" class="form-control" required></input>
                   </div>
                   <div class="form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control"></input>
+                    <input type="text" name="title" class="form-control" required></input>
                   </div>
                   <div class="form-group">
                     <label>Author</label>
-                    <input type="text" name="author" class="form-control"></input>
+                    <input type="text" name="author" class="form-control" required></input>
                   </div>
                   <div class="form-group">
                     <label>Category</label>
@@ -126,7 +126,7 @@
                   </div>
                   <div class="form-group">
                     <label>Year Published</label>
-                    <input type="number" name="yearpublished" class="form-control"></input>
+                    <input type="number" name="yearpublished" class="form-control" required></input>
                   </div>
 
               </div>
