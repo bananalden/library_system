@@ -28,7 +28,16 @@ if (isset($_POST["updatedata"])) {
         header('location: ../booklisting.php?error=1'); 
     }
     else{
-            header('location: ../booklisting.php?edit=0');
+
+            $sql="UPDATE booklist SET bookname='$title', author='$author', category='$category', yearpublished='$yearpublished' WHERE isbn='$isbn';";
+
+            if($conn->query($sql) === TRUE){
+                header('location: ../booklisting.php?edit=0');
+            }
+
+            else{
+                header('location: ../booklisting.php?edit=1');
+            }
     }
 } 
 

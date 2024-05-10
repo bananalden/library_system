@@ -21,10 +21,10 @@
             <a href="mainpage.php" class="nav-link">Home Page</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">Book list</a>
+            <a href="booklisting.php" class="nav-link">Book list</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">User List</a>
+            <a href="#" class="nav-link active">User List</a>
           </li>
         </ul>
         <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
@@ -38,14 +38,11 @@
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->
-          <h1>Book Listings</h1>
+          <h1>Admin User List</h1>
           <div>
-            <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
+            <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
           </div>
           <!-- ========== Search Form End ========== -->
-
-
-
 
           <!-- ========== Table Section Start ========== -->
           <div class="column">
@@ -55,19 +52,16 @@
               <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">STATUS</th>
+                    <th scope="col">Admin ID</th>
+                    <th scope="col">Admin Name</th>
+                    <th scope="col">Admin Username</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   require('backend/database.php');
-                  $query = "SELECT * FROM booklist";
+                  $query = "SELECT * FROM admin";
                   $run_query = mysqli_query($conn, $query);
 
                   if (mysqli_num_rows($run_query) > 0) {
@@ -75,12 +69,9 @@
                   ?>
 
                       <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
+                        <td><?= $row['adminID'] ?></td>
+                        <td><?= $row['adminName'] ?></td>
+                        <td><?= $row['username']?></td>
                         <td>
                           <button type="button" class="btn btn-success editbtn">EDIT</button>
                           <button type="button" class="btn btn-danger deletebtn">DELETE</button>
@@ -111,29 +102,22 @@
               </div>
 
               <div class="modal-body">
-                <form action="backend/insertbook.php" method="post">
+                <form action="backend/insertuser.php" method="post">
                   <div class="form-group">
-                    <label>ISBN</label>
-                    <input type="number" name="isbn" class="form-control" required></input>
+                    <label>User ID</label>
+                    <input type="number" name="userID" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Title</label>
+                    <label>Name</label>
                     <input type="text" name="title" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" class="form-control" required></input>
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="number" name="yearpublished" class="form-control" required></input>
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control" required></input>
                   </div>
 
               </div>
@@ -162,22 +146,15 @@
 
                       <form action="backend/updatebook.php" method="post">
                       <div class="form-group">
-                          <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
+                          <input type="hidden" name="id_update" id="id_update" class="form-control" required></input>
                         </div>
                         <div class="form-group">
-                          <label>Title</label>
-                          <input type="text" name="title" id="title_update" class="form-control" required></input>
+                          <label>Username</label>
+                          <input type="text" name="update_username" id="update_username" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                           <label>Author</label>
-                          <input type="text" name="author" id="author_update" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Category</label>
-                          <select name="category" id="category_update" class="form-control">
-                            <option value="Fiction">Fiction</option>
-                            <option value="Non-Fiction">Non-Fiction</option>
-                          </select>
+                          <input type="text" name="password_update" id="passwordupdate" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                           <label>Year Published</label>
@@ -209,8 +186,8 @@
                     <div class="modal-body">
 
                       <form action="backend/deletebook.php" method="post">
-                      <h4>Do you want to delete this book?</h4>
-                      <input type="hidden" name="isbn_delete" id="isbn_delete">
+                      <h4>Do you want to delete this user?</h4>
+                      <input type="hidden" name="id_delete" id="id_delete">
 
                     </div>
                     <div class="modal-footer">
