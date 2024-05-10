@@ -90,7 +90,7 @@
 
 
         </div>
-        <!-- ########################### INSERT BOOK MODAL START ##################################-->
+        <!-- ########################### INSERT USER MODAL START ##################################-->
         <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -109,7 +109,7 @@
                   </div>
                   <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="title" class="form-control" required></input>
+                    <input type="text" name="name" class="form-control" required></input>
                   </div>
                   <div class="form-group">
                     <label>Username</label>
@@ -123,13 +123,13 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
+                <button type="submit" name="insertuser" class="btn btn-primary">Save changes</button>
               </div>
               </form>
                 </div>
                 </div>
                 </div>
-              <!-- ########################### INSERT BOOK MODAL END ##################################-->
+              <!-- ########################### INSERT USER MODAL END ##################################-->
 
               <!-- ########################### EDIT BOOK MODAL START ##################################-->
               <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

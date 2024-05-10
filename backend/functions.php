@@ -16,6 +16,25 @@ function validateDateWithinCurrentYear($dateString) {
     return $inputYear <= $currentYear; // Check if the input year is less than or equal to the current year
 }
 
+function createUser($conn, $userID, $name, $username, $hashedPwd){
+    $sql = "INSERT INTO admin (adminID, adminName, username, password) VALUES (?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+
+        header("Location: ../userlist.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ssss", $userID, $name, $username, $hashedPwd);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    //NOTE TO PERSON WRITING THIS CODE: SEND REGISTRATION BACK TO ADMIN PAGE
+    header("Location:../userlist.php?error=none");
+    exit();
+
+
+}
+    
 
 
 ?>
