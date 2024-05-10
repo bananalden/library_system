@@ -60,6 +60,7 @@
                     <th scope="col">Author</th>
                     <th scope="col">Category</th>
                     <th scope="col">Year Published</th>
+                    <th scope="col">STATUS</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -79,9 +80,10 @@
                         <td><?= $row['author'] ?></td>
                         <td><?= $row['category'] ?></td>
                         <td><?= $row['yearpublished'] ?></td>
+                        <td><?= $row['status'] ?></td>
                         <td>
                           <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger">DELETE</button>
+                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
                         </td>
                       </tr>
                   <?php
@@ -189,10 +191,38 @@
                       <button type="submit" name="updatedata" class="btn btn-primary">Add Book</button>
                     </div>
                     </form>
-                    <!-- ########################### EDIT BOOK MODAL END ##################################-->
                   </div>
                 </div>
               </div>
+            <!-- ########################### EDIT BOOK MODAL END ##################################-->
+            
+             <!-- ########################### DELETE BOOK MODAL START ##################################-->
+             <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                      <form action="backend/deletebook.php" method="post">
+                      <h4>Do you want to delete this book?</h4>
+                      <input type="hidden" name="isbn_delete" id="isbn_delete">
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                                  <!-- ########################### DELETE BOOK MODAL END ##################################-->
             </div>
           </div>
   </section>
@@ -204,7 +234,10 @@
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable();
-
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
       $('.editbtn').on('click', function() {
 
         $('#editmodal').modal('show');
@@ -226,6 +259,31 @@
 
 
     });
+    </script>
+    
+    <script>
+     $(document).ready(function() {
+      $('.deletebtn').on('click', function() {
+
+        $('#deletemodal').modal('show');
+        
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function(){
+          return $(this).text();
+        })
+
+        console.log(data);
+
+        $('#isbn_delete').val(data[0]);
+ 
+      })
+
+
+    });
+    
+    
+    </script>
   </script>
   <script typ="text/javascript" src="backend/booklisting.js"></script>
 </body>

@@ -1,7 +1,9 @@
 <?php
 
-include('functions.php');
+
 require('database.php');
+include('functions.php');
+
 
 if (isset($_POST["insertdata"])) {
     $isbn = $_POST["isbn"];
@@ -21,14 +23,13 @@ if (isset($_POST["insertdata"])) {
     } else if (!validateNumberDigits($yearpublished, $digitforYear)) {
         header('location: ../booklisting.php?error=1');
         exit();
-    } 
+    }
     
-
     
     else {
 
 
-        $sql = "INSERT INTO booklist (isbn, bookname, author, category, yearpublished) VALUES ('$isbn', '$title', '$author', '$category','$yearpublished')";
+        $sql = "INSERT INTO booklist (isbn, bookname, author, category, yearpublished, status) VALUES ('$isbn', '$title', '$author', '$category','$yearpublished', 'ONSITE')";
 
         if ($conn->query($sql) === TRUE) {
             header('location: ../booklisting.php?error=5');
