@@ -136,7 +136,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -144,27 +144,26 @@
 
                     <div class="modal-body">
 
-                      <form action="backend/updatebook.php" method="post">
+                      <form action="backend/updateuser.php" method="post">
                       <div class="form-group">
                           <input type="hidden" name="id_update" id="id_update" class="form-control" required></input>
+                        </div>
+                        <div class="form-group">
+                          <label>Name</label>
+                          <input type="text" name="update_name" id="update_name" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                           <label>Username</label>
                           <input type="text" name="update_username" id="update_username" class="form-control" required></input>
                         </div>
                         <div class="form-group">
-                          <label>Author</label>
-                          <input type="text" name="password_update" id="passwordupdate" class="form-control" required></input>
+                          <label>Password</label>
+                          <input type="password" name="password_update" id="passwordupdate" class="form-control" required></input>
                         </div>
-                        <div class="form-group">
-                          <label>Year Published</label>
-                          <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
-                        </div>
-
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
+                      <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
                     </div>
                     </form>
                   </div>
@@ -185,14 +184,14 @@
 
                     <div class="modal-body">
 
-                      <form action="backend/deletebook.php" method="post">
+                      <form action="backend/deleteuser.php" method="post">
                       <h4>Do you want to delete this user?</h4>
-                      <input type="hidden" name="id_delete" id="id_delete">
+                      <input type="hidden" name="userid_delete" id="userid_delete">
 
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+                      <button type="submit" name="deletedata" class="btn btn-danger">Delete User</button>
                     </div>
                     </form>
                   </div>
@@ -225,11 +224,10 @@
 
         console.log(data);
 
-        $('#isbn_update').val(data[0]);
-        $('#title_update').val(data[1]);
-        $('#author_update').val(data[2]);
-        $('#category_update').val(data[3]);
-        $('#yearpublished_update').val(data[4])
+        $('#id_update').val(data[0]);
+        $('#update_name').val(data[1]);
+        $('#update_username').val(data[2]);
+    
 
       })
 
@@ -251,7 +249,7 @@
 
         console.log(data);
 
-        $('#isbn_delete').val(data[0]);
+        $('#userid_delete').val(data[0]);
  
       })
 
