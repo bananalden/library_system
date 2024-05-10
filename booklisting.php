@@ -74,7 +74,7 @@
                   ?>
 
                       <tr>
-                        <th scope="row"><?= $row['isbn'] ?></th>
+                        <td><?= $row['isbn'] ?></td>
                         <td><?= $row['bookname'] ?></td>
                         <td><?= $row['author'] ?></td>
                         <td><?= $row['category'] ?></td>
@@ -157,8 +157,12 @@
                     </div>
 
                     <div class="modal-body">
-                      <input type="hidden" name="isbn_update" id="isbn_update">
-                      <form action="backend/" method="post">
+
+                      <form action="backend/updatebook.php" method="post">
+                      <div class="form-group">
+                          <label>ISBN</label>
+                          <input type="text" name="isbn" id="isbn_update" class="form-control" required></input>
+                        </div>
                         <div class="form-group">
                           <label>Title</label>
                           <input type="text" name="title" id="title_update" class="form-control" required></input>
@@ -176,7 +180,7 @@
                         </div>
                         <div class="form-group">
                           <label>Year Published</label>
-                          <input type="number" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
+                          <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
                         </div>
 
                     </div>
@@ -213,7 +217,7 @@
         console.log(data);
 
         $('#isbn_update').val(data[0]);
-        $('#title_update').val(data[0]);
+        $('#title_update').val(data[1]);
         $('#author_update').val(data[2]);
         $('#category_update').val(data[3]);
         $('#yearpublished_update').val(data[4])
