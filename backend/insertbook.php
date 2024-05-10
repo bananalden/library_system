@@ -29,13 +29,27 @@ if (isset($_POST["insertdata"])) {
     else {
 
 
-        $sql = "INSERT INTO booklist (isbn, bookname, author, category, yearpublished, status) VALUES ('$isbn', '$title', '$author', '$category','$yearpublished', 'ONSITE')";
+        try {
+           $sql = "INSERT INTO booklist (isbn, bookname, author, category, yearpublished, status) VALUES ('$isbn', '$title', '$author', '$category','$yearpublished', 'ONSITE')";
 
         if ($conn->query($sql) === TRUE) {
             header('location: ../booklisting.php?error=5');
         } else {
             header('location: ../booklisting.php?error=6');
         }
+            exit();
+        } 
+        catch (mysqli_sql_exception $e) {
+            if ($e->getCode() == 1062) { // 1062 is the MySQL error code for duplicate entry
+                header("Location:../booklisting.php?error=yes");
+                exit();
+            } else {
+                // Handle other database-related errors
+                echo "Database error: " . $e->getMessage();
+            }
+        }
+
+        
     }
 } else {
 

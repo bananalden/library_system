@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 10:25 AM
+-- Generation Time: May 11, 2024 at 01:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,8 +39,32 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminID`, `adminName`, `username`, `password`) VALUES
-('11111111111', 'Alden', 'alden', '$2y$10$hXCYckwxTHKiNjT7IKhZUur/BcCXKkU8RmM96ksHb2mLhP0jNLm7i'),
-('21001396500', 'admin', 'admin', 'admin');
+('21001396500', 'Admin', 'admin', '$2y$10$6cItoy2hra.jhePQ1VcZMOYQHQ4va7W2X1BG/o6tCM9iuTYIOTLZW');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booklist`
+--
+
+CREATE TABLE `booklist` (
+  `isbn` varchar(255) NOT NULL,
+  `bookname` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `yearpublished` int(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `booklist`
+--
+
+INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished`, `status`) VALUES
+('9780747548478', 'Holes', 'Louis Sachar', 'Fiction', 2000, 'ONSITE'),
+('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018, 'ONSITE'),
+('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018, 'ONSITE'),
+('9789719807698', 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017, 'ONSITE');
 
 --
 -- Indexes for dumped tables
@@ -51,6 +75,12 @@ INSERT INTO `admin` (`adminID`, `adminName`, `username`, `password`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminID`);
+
+--
+-- Indexes for table `booklist`
+--
+ALTER TABLE `booklist`
+  ADD PRIMARY KEY (`isbn`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
