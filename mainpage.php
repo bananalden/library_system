@@ -22,7 +22,7 @@
                     <a href="booklisting.php" class="nav-link">Book list</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">User List</a>
+                    <a href="userlist.php" class="nav-link">User List</a>
                 </li>
                
             </ul>
