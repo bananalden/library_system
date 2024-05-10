@@ -61,6 +61,7 @@ body {
     margin-top: 20px;
 }
 
+
 .custom-button {
     display: flex;
     align-items: center;
@@ -80,4 +81,6 @@ body {
     background-color: #e85c29;
 }
 
-
+#login-now {
+    text-align: center;
+}

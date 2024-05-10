@@ -19,27 +19,36 @@
 
         <div class="user-details">
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="First Name">
+                <input type="text" class="input-box" placeholder="Enter First Name">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Last Name">
+                <input type="text" class="input-box" placeholder="Enter Last Name">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="User Name">
+                <input type="text" class="input-box" placeholder="Enter User Name">
             </div>
 
             <div class="user-container">
-                <input type="password" class="input-box" placeholder="Password">
+                <input type="password" class="input-box" placeholder="Enter Password">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Roll No">
+                <input type="text" class="input-box" placeholder="Enter Roll No.">
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Email">
+                <input type="text" class="input-box" placeholder="Enter Email">
+            </div>
+        </div>
+
+        <div id="terms-condition" class="d-flex text-align-center justify-content-center ">
+            <div class="form-check w-25 mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3" style="color: whitesmoke; font-size: 15px; cursor: pointer;">
+                    I accept all terms & conditions
+                </label>
             </div>
         </div>
 
@@ -47,6 +56,9 @@
         <div class="button">
             <button class="custom-button">Sign in</button>
         </div>
+
+        <p id="login-now" class="small fw-bold mt-2 pt-1 mb-0 text-light"> Already have an account? <a href="#!"
+                class="link-dange" style="color:#e85c29">Login now</a></p>
 
 
     </form>
