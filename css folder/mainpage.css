@@ -52,16 +52,14 @@
 
 /* ==== AbOUT US ==== */
 
-#section-2{
+
+#section-2 {
     width: 100vw;
     height: 100vh;
-    background-color: brown;
-
+    background-color: cadetblue;
 }
 
-.about-us h1 {
+#title {
     text-align: center;
-    padding-top: 150px;
-    font-family: "Nanum Gothic", sans-serif;
+    padding-top: 80px;
 }
-
