@@ -131,7 +131,7 @@
                 </div>
               <!-- ########################### INSERT USER MODAL END ##################################-->
 
-              <!-- ########################### EDIT BOOK MODAL START ##################################-->
+              <!-- ########################### EDIT USER MODAL START ##################################-->
               <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -169,9 +169,9 @@
                   </div>
                 </div>
               </div>
-            <!-- ########################### EDIT BOOK MODAL END ##################################-->
+            <!-- ########################### EDIT USER MODAL END ##################################-->
             
-             <!-- ########################### DELETE BOOK MODAL START ##################################-->
+             <!-- ########################### DELETE USER MODAL START ##################################-->
              <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -197,7 +197,7 @@
                   </div>
                 </div>
               </div>
-                                  <!-- ########################### DELETE BOOK MODAL END ##################################-->
+                                  <!-- ########################### DELETE USER MODAL END ##################################-->
             </div>
           </div>
   </section>
