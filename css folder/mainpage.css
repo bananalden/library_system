@@ -54,12 +54,82 @@
 
 
 #section-2 {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: cadetblue;
 }
 
-#title {
+#section-2 h1 {
     text-align: center;
-    padding-top: 80px;
+    font-family: "Nanum Gothic", sans-serif;
+    text-transform: uppercase;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+#section-3 {
+    width: 100%;
+    height: 100vh;
+    background-color: brown;
+}
+
+
+#img-4 {
+    width: 51%;
+    height: 50%;
+    transition: transform 0.3s ease;
+}
+
+#img-4:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+#img-8 {
+    width: 51%;
+    height: 32vh;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+#img-8:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+#row-2 {
+    position: relative;
+    right: 10%;
+}
+
+#img-7 {
+    width: 50%;
+    height: 50%;
+    transition: transform 0.3s ease;
+}
+
+#img-7:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+#img-6 {
+    width: 50%;
+    height: 32vh;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+#img-6:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+
+#about-us p {
+    line-height: 25px;
+    margin-top: 50px;
+    font-family: "Nanum Gothic", sans-serif;
 }
