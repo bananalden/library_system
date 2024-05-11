@@ -57,7 +57,7 @@
 
     <section id="section-2" class="text-dark p-5 text-left">
         <h1>About Us</h1>
-        <div class="container">
+        <div class="container-2">
            <div class="container">
                 <div class="row">
                     <div class="row-1 col">
@@ -96,16 +96,27 @@
     </section>
 
 
-    <section id="section-3"></section>
+    <section id="section-3">
+        <div class="contact-us">
+            <form>
+                <h1>Contact Us Form</h1>
+                <input type="text" id="firstName" placeholder="First Name" required />
+                <input type="text" id="lastName" placeholder="Last Name" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="text" id="mobile" placeholder="Mobile" required />
+                <textarea placeholder="Type Your Message Here..." required></textarea>
+                <input type="submit" value="Send" id="button" />
+            </form>
+        </div>
+    </section>
 
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your ACLC LIBRARY SYSTEM</p>
+        </div>
+    </footer>
 
-
-
-
-
-
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
