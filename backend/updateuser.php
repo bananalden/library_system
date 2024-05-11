@@ -7,7 +7,7 @@ if (isset($_POST["updatedata"])) {
     $userID = $_POST['id_update'];
     $name = $_POST['update_name'];
     $username = $_POST['update_username'];
-    $password = $_POST['passwqord_update'];
+    $password = $_POST['password_update'];
     $pwdHashed = password_hash($password, PASSWORD_DEFAULT);
 
 

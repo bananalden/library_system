@@ -51,3 +51,21 @@ function existingUsername($conn, $username)
         return false;
     }
 }
+
+function grabAssocPassword ($conn, $username){
+
+    $sql = "SELECT * FROM admin WHERE username='$username'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $hashPass = $row['password'];
+
+        return $hashPass;
+    }
+
+    else{
+        return NULL;
+    }
+
+}

@@ -19,11 +19,11 @@
 
         <div class="user-details">
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Enter Username">
+                <input type="text" name="username" class="input-box" placeholder="Enter Username" required>
             </div>
 
             <div class="user-container">
-                <input type="password" class="input-box" placeholder="Enter Password">
+                <input type="password" name="password" class="input-box" placeholder="Enter Password" required>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
                 class="link-dange" style="color:#e85c29">Register</a></p>
 
         <div class="button">
-            <button class="custom-button">Sign in</button>
+            <button type="submit" name="login" class="custom-button">Sign in</button>
         </div>
 
 

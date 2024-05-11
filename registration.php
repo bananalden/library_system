@@ -1,3 +1,8 @@
+<?php 
+require 'backend/adminauthcheck.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
