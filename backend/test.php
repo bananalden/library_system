@@ -1,16 +1,17 @@
 <?php 
 include('functions.php');
+include('database.php');
 
-$myisbn = "9780747548478";
-$digitforISBN = 13;
+$username = "admin";
 
-if (!is_numeric($myisbn)){
-    echo "Not Numeric";
+if(existingUsername($conn, $username)){
+    echo "Username exists";
 }
 
-else {
-    echo "Is Numeric";
+else{
+    echo "Username does not exist";
 }
+
 
 
 ?>

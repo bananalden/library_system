@@ -14,7 +14,15 @@ if (isset($_POST['insertuser'])) {
 
     if (!validateNumberDigits($userID, $userIDdigit)) {
         header('location: ../userlist.php?error=1');
-    } else {
+    } 
+    
+    else if (existingUsername($conn, $username)){
+        header('location:../userlist.php?error=4');
+    }
+    
+    
+    
+    else {
         try {
             createUser($conn, $userID, $name, $username, $hashedPwd);
             header("Location:../userlist.php?error=none");
