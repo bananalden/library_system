@@ -26,6 +26,9 @@
           <li class="nav-item">
             <a href="userlist.php" class="nav-link">User List</a>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Borrowing List</a>
+          </li>
         </ul>
         <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
   </nav>
@@ -142,88 +145,88 @@
                 <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
               </div>
               </form>
-                </div>
-                </div>
-                </div>
-              <!-- ########################### INSERT BOOK MODAL END ##################################-->
-
-              <!-- ########################### EDIT BOOK MODAL START ##################################-->
-              <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <form action="backend/updatebook.php" method="post">
-                      <div class="form-group">
-                          <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Title</label>
-                          <input type="text" name="title" id="title_update" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Author</label>
-                          <input type="text" name="author" id="author_update" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Category</label>
-                          <select name="category" id="category_update" class="form-control">
-                            <option value="Fiction">Fiction</option>
-                            <option value="Non-Fiction">Non-Fiction</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Year Published</label>
-                          <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            <!-- ########################### EDIT BOOK MODAL END ##################################-->
-            
-             <!-- ########################### DELETE BOOK MODAL START ##################################-->
-             <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <form action="backend/deletebook.php" method="post">
-                      <h4>Do you want to delete this book?</h4>
-                      <input type="hidden" name="isbn_delete" id="isbn_delete">
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-                                  <!-- ########################### DELETE BOOK MODAL END ##################################-->
             </div>
           </div>
+        </div>
+        <!-- ########################### INSERT BOOK MODAL END ##################################-->
+
+        <!-- ########################### EDIT BOOK MODAL START ##################################-->
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/updatebook.php" method="post">
+                  <div class="form-group">
+                    <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title" id="title_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" name="author" id="author_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" id="category_update" class="form-control">
+                      <option value="Fiction">Fiction</option>
+                      <option value="Non-Fiction">Non-Fiction</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Year Published</label>
+                    <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ########################### EDIT BOOK MODAL END ##################################-->
+
+        <!-- ########################### DELETE BOOK MODAL START ##################################-->
+        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/deletebook.php" method="post">
+                  <h4>Do you want to delete this book?</h4>
+                  <input type="hidden" name="isbn_delete" id="isbn_delete">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ########################### DELETE BOOK MODAL END ##################################-->
+      </div>
+    </div>
   </section>
   <!-- ######   SCRIPTS HERE     -######-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -242,7 +245,7 @@
         $('#editmodal').modal('show');
         $tr = $(this).closest('tr');
 
-        var data = $tr.children("td").map(function(){
+        var data = $tr.children("td").map(function() {
           return $(this).text();
         })
 
@@ -258,31 +261,29 @@
 
 
     });
-    </script>
-    
-    <script>
-     $(document).ready(function() {
+  </script>
+
+  <script>
+    $(document).ready(function() {
       $('.deletebtn').on('click', function() {
 
         $('#deletemodal').modal('show');
 
         $tr = $(this).closest('tr');
 
-        var data = $tr.children("td").map(function(){
+        var data = $tr.children("td").map(function() {
           return $(this).text();
         })
 
         console.log(data);
 
         $('#isbn_delete').val(data[0]);
- 
+
       })
 
 
     });
-    
-    
-    </script>
+  </script>
   </script>
   <script typ="text/javascript" src="backend/booklisting.js"></script>
 </body>

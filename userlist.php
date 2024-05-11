@@ -26,6 +26,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link active">User List</a>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Borrowing List</a>
+          </li>
         </ul>
         <a class="nav-item mr-3 nav-link p-3 text-light" href="#" style="background-color: #e85c29">Logout</a>
   </nav>
@@ -71,7 +74,7 @@
                       <tr>
                         <td><?= $row['adminID'] ?></td>
                         <td><?= $row['adminName'] ?></td>
-                        <td><?= $row['username']?></td>
+                        <td><?= $row['username'] ?></td>
                         <td>
                           <button type="button" class="btn btn-success editbtn">EDIT</button>
                           <button type="button" class="btn btn-danger deletebtn">DELETE</button>
@@ -126,80 +129,80 @@
                 <button type="submit" name="insertuser" class="btn btn-primary">Save changes</button>
               </div>
               </form>
-                </div>
-                </div>
-                </div>
-              <!-- ########################### INSERT USER MODAL END ##################################-->
-
-              <!-- ########################### EDIT USER MODAL START ##################################-->
-              <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <form action="backend/updateuser.php" method="post">
-                      <div class="form-group">
-                          <input type="hidden" name="id_update" id="id_update" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Name</label>
-                          <input type="text" name="update_name" id="update_name" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Username</label>
-                          <input type="text" name="update_username" id="update_username" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                          <label>Password</label>
-                          <input type="password" name="password_update" id="passwordupdate" class="form-control" required></input>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            <!-- ########################### EDIT USER MODAL END ##################################-->
-            
-             <!-- ########################### DELETE USER MODAL START ##################################-->
-             <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-
-                      <form action="backend/deleteuser.php" method="post">
-                      <h4>Do you want to delete this user?</h4>
-                      <input type="hidden" name="userid_delete" id="userid_delete">
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="submit" name="deletedata" class="btn btn-danger">Delete User</button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-                                  <!-- ########################### DELETE USER MODAL END ##################################-->
             </div>
           </div>
+        </div>
+        <!-- ########################### INSERT USER MODAL END ##################################-->
+
+        <!-- ########################### EDIT USER MODAL START ##################################-->
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/updateuser.php" method="post">
+                  <div class="form-group">
+                    <input type="hidden" name="id_update" id="id_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="update_name" id="update_name" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="update_username" id="update_username" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password_update" id="passwordupdate" class="form-control" required></input>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ########################### EDIT USER MODAL END ##################################-->
+
+        <!-- ########################### DELETE USER MODAL START ##################################-->
+        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/deleteuser.php" method="post">
+                  <h4>Do you want to delete this user?</h4>
+                  <input type="hidden" name="userid_delete" id="userid_delete">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete User</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ########################### DELETE USER MODAL END ##################################-->
+      </div>
+    </div>
   </section>
   <!-- ######   SCRIPTS HERE     -######-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -218,7 +221,7 @@
         $('#editmodal').modal('show');
         $tr = $(this).closest('tr');
 
-        var data = $tr.children("td").map(function(){
+        var data = $tr.children("td").map(function() {
           return $(this).text();
         })
 
@@ -227,37 +230,35 @@
         $('#id_update').val(data[0]);
         $('#update_name').val(data[1]);
         $('#update_username').val(data[2]);
-    
+
 
       })
 
 
     });
-    </script>
-    
-    <script>
-     $(document).ready(function() {
+  </script>
+
+  <script>
+    $(document).ready(function() {
       $('.deletebtn').on('click', function() {
 
         $('#deletemodal').modal('show');
 
         $tr = $(this).closest('tr');
 
-        var data = $tr.children("td").map(function(){
+        var data = $tr.children("td").map(function() {
           return $(this).text();
         })
 
         console.log(data);
 
         $('#userid_delete').val(data[0]);
- 
+
       })
 
 
     });
-    
-    
-    </script>
+  </script>
   </script>
   <script typ="text/javascript" src="backend/booklisting.js"></script>
 </body>
