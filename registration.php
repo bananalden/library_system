@@ -40,10 +40,6 @@ require 'backend/adminauthcheck.php';
             </div>
 
             <div class="user-container">
-                <input type="text" class="input-box" placeholder="Enter Roll No.">
-            </div>
-
-            <div class="user-container">
                 <input type="text" class="input-box" placeholder="Enter Email">
             </div>
         </div>
@@ -63,7 +59,7 @@ require 'backend/adminauthcheck.php';
         </div>
 
         <p id="login-now" class="small fw-bold mt-2 pt-1 mb-0 text-light"> Already have an account? <a href="#!"
-                class="link-dange" style="color:#e85c29">Login now</a></p>
+                class="link-dange ms-1" style="color:#e85c29">Login now</a></p>
 
 
     </form>
