@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 06:28 AM
+-- Generation Time: May 12, 2024 at 08:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,13 +44,38 @@ INSERT INTO `admin` (`adminID`, `adminName`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bookborrowlist`
+--
+
+CREATE TABLE `bookborrowlist` (
+  `refID` int(11) NOT NULL,
+  `bookID` varchar(255) NOT NULL,
+  `booktitle` varchar(255) NOT NULL,
+  `studentID` varchar(255) NOT NULL,
+  `studentName` varchar(255) NOT NULL,
+  `dateborrowed` date NOT NULL,
+  `datedue` date NOT NULL,
+  `datereturned` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookborrowlist`
+--
+
+INSERT INTO `bookborrowlist` (`refID`, `bookID`, `booktitle`, `studentID`, `studentName`, `dateborrowed`, `datedue`, `datereturned`) VALUES
+(1, '9780747548478', 'Holes', '210321515', 'Alden', '2024-05-12', '2024-05-15', '2024-05-12'),
+(2, '9781847496447', 'Moby Dick', '12313123', 'Nedla', '2024-05-12', '2024-05-15', '2024-05-12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `booklist`
 --
 
 CREATE TABLE `booklist` (
-  `isbn` varchar(255) NOT NULL,
-  `bookname` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
+  `isbn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `bookname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `category` varchar(255) NOT NULL,
   `yearpublished` int(255) NOT NULL,
   `status` varchar(255) NOT NULL
@@ -64,7 +89,7 @@ INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished
 ('9780747548478', 'Holes', 'Louis Sachar', 'Fiction', 2000, 'ONSITE'),
 ('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018, 'ONSITE'),
 ('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018, 'ONSITE'),
-('9789719807698', 'Practical Research For Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017, 'ONSITE');
+('9789719807698', 'Practical Research for Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Fiction', 2017, 'ONSITE');
 
 --
 -- Indexes for dumped tables
@@ -77,10 +102,37 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminID`);
 
 --
+-- Indexes for table `bookborrowlist`
+--
+ALTER TABLE `bookborrowlist`
+  ADD PRIMARY KEY (`refID`),
+  ADD KEY `isbnFK` (`bookID`);
+
+--
 -- Indexes for table `booklist`
 --
 ALTER TABLE `booklist`
   ADD PRIMARY KEY (`isbn`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bookborrowlist`
+--
+ALTER TABLE `bookborrowlist`
+  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bookborrowlist`
+--
+ALTER TABLE `bookborrowlist`
+  ADD CONSTRAINT `isbnFK` FOREIGN KEY (`bookID`) REFERENCES `booklist` (`isbn`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
