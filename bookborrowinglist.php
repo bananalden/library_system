@@ -10,7 +10,7 @@ require 'backend/adminauthcheck.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book List</title>
+  <title>Book Return</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
 </head>
@@ -27,13 +27,13 @@ require 'backend/adminauthcheck.php';
             <a href="mainpage.php" class="nav-link">Home Page</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">Book list</a>
+            <a href="booklisting.php" class="nav-link">Book list</a>
           </li>
           <li class="nav-item">
             <a href="userlist.php" class="nav-link">User List</a>
           </li>
           <li class="nav-item">
-            <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
+            <a href="#" class="nav-link  active">Borrowing List</a>
           </li>
         </ul>
         <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>
@@ -47,7 +47,7 @@ require 'backend/adminauthcheck.php';
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->
-          <h1>Book Listings</h1>
+          <h1>Borrowing History</h1>
           <div>
             <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
           </div>
@@ -64,19 +64,21 @@ require 'backend/adminauthcheck.php';
               <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
+                    <th scope="col">Reference ID</th>
                     <th scope="col">ISBN</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Date Borrowed</th>
+                    <th scope="col">Date Due</th>
+                    <th scope="col">Date Returned</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   require('backend/database.php');
-                  $query = "SELECT * FROM booklist";
+                  $query = "SELECT * FROM bookborrowlist";
                   $run_query = mysqli_query($conn, $query);
 
                   if (mysqli_num_rows($run_query) > 0) {
@@ -84,15 +86,16 @@ require 'backend/adminauthcheck.php';
                   ?>
 
                       <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
+                        <td><?= $row['refID'] ?></td>
+                        <td><?= $row['bookID'] ?></td>
+                        <td><?= $row['booktitle'] ?></td>
+                        <td><?= $row['studentID'] ?></td>
+                        <td><?= $row['studentName'] ?></td>
+                        <td><?= $row['dateborrowed'] ?></td>
+                        <td><?= $row['datedue'] ?></td>
+                        <td><?= $row['datereturned'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                        <button type="button" class="btn btn-success editbtn">RETURN BOOK</button>
                         </td>
                       </tr>
                   <?php
@@ -113,14 +116,14 @@ require 'backend/adminauthcheck.php';
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Insert Book Details Here</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Borrowing Book Form</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
 
               <div class="modal-body">
-                <form action="backend/insertbook.php" method="post">
+                <form action="backend/borrowdata.php" method="post">
                   <div class="form-group">
                     <label>ISBN</label>
                     <input type="number" name="isbn" class="form-control" required></input>
@@ -130,25 +133,22 @@ require 'backend/adminauthcheck.php';
                     <input type="text" name="title" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" class="form-control" required></input>
+                    <label>Student ID</label>
+                    <input type="text" name="studentID" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
+                    <label>Student Name</label>
+                    <input type="text" name="studentName" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="number" name="yearpublished" class="form-control" required></input>
+                    <label>Due Date</label>
+                    <input type="date" name="dueDate" class="form-control" required></input>
                   </div>
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
+                <button type="submit" name="insertborrowdata" class="btn btn-primary">Borrow Book</button>
               </div>
               </form>
             </div>
@@ -161,7 +161,7 @@ require 'backend/adminauthcheck.php';
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Return Book Confirmation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -169,34 +169,17 @@ require 'backend/adminauthcheck.php';
 
               <div class="modal-body">
 
-                <form action="backend/updatebook.php" method="post">
+                <form action="backend/returnbook.php" method="post">
                   <div class="form-group">
-                    <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
+                  <input type="hidden" name="ref_id" id="ref_id" class="form-control"></input>
+                    <input type="hidden" name="isbn_return" id="isbn_return" class="form-control" required></input>
+                    
                   </div>
-                  <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" id="title_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" id="author_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" id="category_update" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
-                  </div>
-
+                <h5>Would you like to return the book now?</h5>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
+                <button type="submit" name="returnbook" class="btn btn-primary">Return Book</button>
               </div>
               </form>
             </div>
@@ -257,8 +240,8 @@ require 'backend/adminauthcheck.php';
 
         console.log(data);
 
-        $('#isbn_update').val(data[0]);
-        $('#title_update').val(data[1]);
+        $('#ref_id').val(data[0]);
+        $('#isbn_return').val(data[1]);
         $('#author_update').val(data[2]);
         $('#category_update').val(data[3]);
         $('#yearpublished_update').val(data[4])

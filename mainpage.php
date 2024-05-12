@@ -9,7 +9,7 @@ require 'backend/adminauthcheck.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System</title>
+    <title>Main Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@ require 'backend/adminauthcheck.php';
                     <a href="userlist.php" class="nav-link">User List</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Borrowing List</a>
+                    <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
                 </li>
             </ul>
             <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>

@@ -10,7 +10,7 @@ require 'backend/adminauthcheck.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library System</title>
+  <title>User List</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
 </head>
@@ -33,7 +33,7 @@ require 'backend/adminauthcheck.php';
             <a href="#" class="nav-link active">User List</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Borrowing List</a>
+            <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
           </li>
         </ul>
         <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>

@@ -69,3 +69,40 @@ function grabAssocPassword ($conn, $username){
     }
 
 }
+
+function existingBook($conn, $isbn)
+{
+
+    $sql = "SELECT * FROM booklist WHERE isbn='$isbn';";
+
+    $queryResult = $conn->query($sql);
+
+    if ($queryResult->num_rows > 0) {
+        
+        return true;
+    } else {
+        
+        return false;
+    }
+}
+
+function grabBookStatus ($conn, $isbn){
+
+    $sql = "SELECT * FROM booklist WHERE isbn='$isbn'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $bookstatus = $row['status'];
+
+        return $bookstatus;
+    }
+
+    else{
+        return NULL;
+    }
+
+}
+
+
+?>
