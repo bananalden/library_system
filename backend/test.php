@@ -1,17 +1,21 @@
 <?php 
 include('functions.php');
 include('database.php');
+//"2024-05-08"
 
-$username = "admin";
+$date = date("Y-m-d");
+$curDate = date("Y-m-d");
 
-if(existingUsername($conn, $username)){
-    echo "Username exists";
+echo $date . "<br>";
+echo $curDate . "<br>";
+
+
+if ($date <= $curDate){
+    echo "date is less";
 }
-
 else{
-    echo "Username does not exist";
+    echo "date is more";
 }
-
 
 
 ?>

@@ -9,12 +9,16 @@ if (isset($_POST["insertborrowdata"])){
     $studentID = $_POST["studentID"];
     $studentName = $_POST["studentName"];
     $dueDate = $_POST["dueDate"];
+    $curDate = date("Y-m-d");
 
     if(!existingBook($conn, $isbn)){
         header('Location: ../bookborrowinglist.php?error=nobook');
     }
     else if(grabBookStatus($conn, $isbn) == 'AWAY'){
         header('Location: ../bookborrowinglist.php?error=bookaway');
+    }
+    else if($dueDate <= $curDate){
+        header('Location: ../bookborrowinglist.php?error=duedateinvalid');
     }
 
     else{
