@@ -1,6 +1,6 @@
 <?php 
 require 'backend/adminauthcheck.php';
-
+error_reporting(E_ERROR | E_PARSE);
 ?>
 
 
@@ -13,13 +13,14 @@ require 'backend/adminauthcheck.php';
   <title>User List</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="./css folder/userlist.css">
 </head>
 
 <body>
   <!-- =================NAVBAR SECTION ================-->
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container">
-      <a href="mainpage.php" class="navbar-brand">ACLC Library System</a>
+      <a href="mainpage.php" class="title navbar-brand">ACLC Library System</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ms-auto">
@@ -47,6 +48,7 @@ require 'backend/adminauthcheck.php';
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->
+          <?php include 'backend/alertcheckuser.php';?>
           <h1>Admin User List</h1>
           <div>
             <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
@@ -105,7 +107,7 @@ require 'backend/adminauthcheck.php';
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Insert User Details Here</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -131,7 +133,7 @@ require 'backend/adminauthcheck.php';
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" name="insertuser" class="btn btn-primary">Save changes</button>
               </div>
               </form>
@@ -146,7 +148,7 @@ require 'backend/adminauthcheck.php';
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -171,7 +173,7 @@ require 'backend/adminauthcheck.php';
                   </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
               </div>
               </form>
@@ -186,7 +188,7 @@ require 'backend/adminauthcheck.php';
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -199,7 +201,7 @@ require 'backend/adminauthcheck.php';
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" name="deletedata" class="btn btn-danger">Delete User</button>
               </div>
               </form>

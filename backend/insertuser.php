@@ -13,10 +13,14 @@ if (isset($_POST['insertuser'])) {
     $userIDdigit = 11;
 
     if (!validateNumberDigits($userID, $userIDdigit)) {
+        session_start();
+        $_SESSION['alert'] = 1;
         header('location: ../userlist.php?error=1');
     } 
     
     else if (existingUsername($conn, $username)){
+        session_start();
+        $_SESSION['alert'] = 4;
         header('location:../userlist.php?error=4');
     }
     
@@ -25,6 +29,8 @@ if (isset($_POST['insertuser'])) {
     else {
         try {
             createUser($conn, $userID, $name, $username, $hashedPwd);
+            session_start();
+            $_SESSION['alert'] = 0;
             header("Location:../userlist.php?error=none");
             exit();
         } catch (mysqli_sql_exception $e) {

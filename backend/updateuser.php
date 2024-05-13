@@ -15,6 +15,8 @@ if (isset($_POST["updatedata"])) {
     $sql="UPDATE admin SET adminName = '$name', username = '$username', password='$pwdHashed' WHERE adminID='$userID';";
 
             if($conn->query($sql) === TRUE){
+                session_start();
+                $_SESSION['alert'] = 5;
                 header('location: ../userlist.php?edit=0');
             }
 

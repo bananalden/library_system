@@ -9,6 +9,8 @@ if(isset($_POST['deletedata'])){
     $sql = "DELETE FROM admin WHERE adminID = '$userID';";
 
     if($conn->query($sql) == TRUE){
+        session_start();
+        $_SESSION['alert'] = 3;
         header('location: ../userlist.php?delete=0');
     }
 

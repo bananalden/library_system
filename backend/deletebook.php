@@ -9,6 +9,8 @@ if(isset($_POST['deletedata'])){
     $sql = "DELETE FROM booklist WHERE isbn = '$isbn'";
 
     if($conn->query($sql) == TRUE){
+        session_start();
+        $_SESSION['alert'] = 3;
         header('location: ../booklisting.php?delete=0');
     }
 
