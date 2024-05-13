@@ -19,16 +19,12 @@ require 'backend/adminauthcheck.php';
     <form class="container" action="backend/logcheck.php" method="post">  
 
         <div class="container-login">
-            <h1>User Registration Form</h1>
+            <h1>User Request Form</h1>
         </div>
 
         <div class="user-details">
             <div class="user-container">
                 <input type="text" class="input-box" placeholder="Enter First Name">
-            </div>
-
-            <div class="user-container">
-                <input type="text" class="input-box" placeholder="Enter Last Name">
             </div>
 
             <div class="user-container">
@@ -39,9 +35,6 @@ require 'backend/adminauthcheck.php';
                 <input type="password" class="input-box" placeholder="Enter Password">
             </div>
 
-            <div class="user-container">
-                <input type="text" class="input-box" placeholder="Enter Email">
-            </div>
         </div>
 
         <div id="terms-condition" class="d-flex text-align-center justify-content-center ">
