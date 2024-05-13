@@ -1,6 +1,6 @@
 <?php 
 require 'backend/adminauthcheck.php';
-
+error_reporting(E_ERROR | E_PARSE);
 ?>
 
 
@@ -48,6 +48,7 @@ require 'backend/adminauthcheck.php';
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->
+          <?php include 'backend/alertborrowlist.php';?>
           <h1>Borrowing History</h1>
           <div>
             <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>

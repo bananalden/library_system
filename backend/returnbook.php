@@ -9,6 +9,8 @@ if(isset($_POST['returnbook'])){
     $isbn = $_POST["isbn_return"];
 
     if(grabBookStatus($conn, $isbn) == 'ONSITE'){
+        session_start();
+        $_SESSION['alert'] = 7;
         header('location:../bookborrowinglist.php?error=bookonsite');
     }
 
@@ -19,6 +21,8 @@ if(isset($_POST['returnbook'])){
         if ($conn->query($sql_datereturn) === TRUE)
         {
             if($conn->query($sql_booklistreturn) === TRUE){
+                session_start();
+                $_SESSION['alert'] = 6;
                 header('Location: ../bookborrowinglist.php?error=none');
             }
         }

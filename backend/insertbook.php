@@ -18,9 +18,13 @@ if (isset($_POST["insertdata"])) {
 
 
     if (!validateNumberDigits($isbn, $digitforISBN)) {
+        session_start();
+        $_SESSION['alert'] = 1;
         header('location: ../booklisting.php?error=0');
         exit();
     } else if (!validateNumberDigits($yearpublished, $digitforYear)) {
+        session_start();
+        $_SESSION['alert'] = 4;
         header('location: ../booklisting.php?error=1');
         exit();
     }

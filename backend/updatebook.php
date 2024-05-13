@@ -25,6 +25,8 @@ if (isset($_POST["updatedata"])) {
         header('location: ../booklisting.php?error=0'); 
     }
     else if (!validateNumberDigits($yearpublished, $digitforYear)){
+        session_start();
+        $_SESSION['alert'] = 4;
         header('location: ../booklisting.php?error=1'); 
     }
     else{
@@ -32,6 +34,8 @@ if (isset($_POST["updatedata"])) {
             $sql="UPDATE booklist SET bookname='$title', author='$author', category='$category', yearpublished='$yearpublished' WHERE isbn='$isbn';";
 
             if($conn->query($sql) === TRUE){
+                session_start();
+                $_SESSION['alert'] = 5;
                 header('location: ../booklisting.php?edit=0');
             }
 
