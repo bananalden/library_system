@@ -16,7 +16,7 @@ error_reporting(E_ERROR | E_PARSE);
   <link rel="stylesheet" href="./css folder/userlist.css">
 </head>
 
-<body>
+<body style="background-color: #f0ece2;">
   <!-- =================NAVBAR SECTION ================-->
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container">
@@ -37,14 +37,14 @@ error_reporting(E_ERROR | E_PARSE);
             <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
           </li>
         </ul>
-        <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>
+        <a id="btn" class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php">Logout</a>
   </nav>
   </div>
   </div>
   </nav>
   <!-- =================NAVBAR SECTION END================-->
-  <section class="bg-light text-dark p-5 text-left">
-    <div class="container">
+  <section class="text-dark p-5 text-left">
+    <div id="container" class="container">
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->

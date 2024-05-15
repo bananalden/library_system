@@ -1,9 +1,36 @@
-/* body {
-    background-color: #f0ece2;
-} */
-
 .title {
     font-size: 30px;
     font-family: "Sedan SC", serif;
     color: #e85c29;
+}
+
+.title:hover {
+    color: #e85c29;
+}
+
+.nav-link {
+    color: whitesmoke;
+}
+
+#navbar :hover {
+    color: #e85c29;
+}
+
+#btn {
+    color: whitesmoke;
+    transition: 0.3s;
+}
+
+#btn:hover{
+    border-radius: 10px;
+    background: #e85c29;
+    color: #fff;
+    transition: .5s ease-in-out;
+}
+
+#container {
+    height: 55vh;
+    padding: 25px;
+    margin-top: 100px;
+    background: rgba(124, 100, 100, 0.1);
 }

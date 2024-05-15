@@ -22,8 +22,21 @@
 .nav-link {
     color: whitesmoke;
 }
+
 #section-1 {
     background-color: #f0ece2;
+}
+
+#btn {
+    color: whitesmoke;
+    transition: 0.3s;
+}
+
+#btn:hover{
+    border-radius: 10px;
+    background: #e85c29;
+    color: #fff;
+    transition: .5s ease-in-out;
 }
 
 #img {

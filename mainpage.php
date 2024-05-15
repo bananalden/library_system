@@ -36,7 +36,7 @@ require 'backend/adminauthcheck.php';
                     <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
                 </li>
             </ul>
-            <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>
+            <a id="btn" class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php">Logout</a>
     </nav>
         </div>
         </div> 
