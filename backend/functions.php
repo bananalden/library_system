@@ -124,4 +124,54 @@ function grabBookStatus ($conn, $isbn){
 }
 
 
+function grabBookTitle($conn, $isbn){
+
+    $sql = "SELECT * FROM booklist WHERE isbn='$isbn'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $bookTitle = $row['bookname'];
+
+        return $bookTitle;
+    }
+
+    else{
+        return NULL;
+    }
+}
+
+function existingStudent($conn, $studID)
+{
+
+    $sql = "SELECT * FROM studentlist WHERE studentID='$studID';";
+
+    $queryResult = $conn->query($sql);
+
+    if ($queryResult->num_rows > 0) {
+        
+        return true;
+    } else {
+        
+        return false;
+    }
+}
+
+
+function grabStudentName($conn, $studID){
+
+    $sql = "SELECT * FROM studentlist WHERE studentID='$studID'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $studentName = $row['studentName'];
+
+        return $studentName;
+    }
+
+    else{
+        return NULL;
+    }
+}
 ?>

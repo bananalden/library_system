@@ -84,6 +84,20 @@ if(isset($_SESSION['alert'])){
 <?php 
     unset($_SESSION['alert']);
     break;
+    case 8:
+?>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>ERROR</strong> Student does not exist!
+  <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<?php
+
+      unset($_SESSION['alert']);
+      break;
     }
-}
+  }
 ?>

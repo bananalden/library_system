@@ -67,7 +67,7 @@ error_reporting(E_ERROR | E_PARSE);
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Student ID</th>
-                    <th scope="col">Admin Name</th>
+                    <th scope="col">Student Name</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>

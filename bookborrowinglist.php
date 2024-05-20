@@ -134,16 +134,8 @@ error_reporting(E_ERROR | E_PARSE);
                     <input type="number" name="isbn" class="form-control" required></input>
                   </div>
                   <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
                     <label>Student ID</label>
                     <input type="text" name="studentID" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Student Name</label>
-                    <input type="text" name="studentName" class="form-control" required></input>
                   </div>
                   <div class="form-group">
                     <label>Due Date</label>

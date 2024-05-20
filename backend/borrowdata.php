@@ -5,11 +5,11 @@ require ('database.php');
 
 if (isset($_POST["insertborrowdata"])){
     $isbn = $_POST["isbn"];
-    $booktitle = $_POST["title"];
     $studentID = $_POST["studentID"];
-    $studentName = $_POST["studentName"];
     $dueDate = $_POST["dueDate"];
     $curDate = date("Y-m-d");
+    $bookTitle = grabBookTitle($conn, $isbn);
+    $studentName = grabStudentName($conn, $studentID);
 
     if(!existingBook($conn, $isbn)){
         session_start();
@@ -21,6 +21,12 @@ if (isset($_POST["insertborrowdata"])){
         $_SESSION['alert'] = 4;
         header('Location: ../bookborrowinglist.php?error=bookaway');
     }
+
+    else if(!existingStudent($conn, $studentID)){
+        session_start();
+        $_SESSION['alert'] = 8;
+        header('Location: ../bookborrowinglist.php?error=nostudent');
+    }
     else if($dueDate <= $curDate){
         session_start();
         $_SESSION['alert'] = 3;
@@ -28,7 +34,7 @@ if (isset($_POST["insertborrowdata"])){
     }
 
     else{
-        $sql_insert = "INSERT INTO bookborrowlist (bookID, booktitle, studentID, studentName, dateborrowed, datedue) VALUES ('$isbn', '$booktitle','$studentID','$studentName', CURDATE(), '$dueDate');";
+        $sql_insert = "INSERT INTO bookborrowlist (bookID, booktitle, studentID, studentName, dateborrowed, datedue) VALUES ('$isbn', '$bookTitle','$studentID','$studentName', CURDATE(), '$dueDate');";
         $sql_update ="UPDATE booklist SET status='AWAY' WHERE isbn='$isbn';";
 
         if ($conn->query($sql_insert) === TRUE)
