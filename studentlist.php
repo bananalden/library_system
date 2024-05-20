@@ -1,5 +1,5 @@
 <?php 
-//require 'backend/adminauthcheck.php';
+require 'backend/adminauthcheck.php';
 error_reporting(E_ERROR | E_PARSE);
 ?>
 
@@ -31,7 +31,10 @@ error_reporting(E_ERROR | E_PARSE);
             <a href="booklisting.php" class="nav-link">Book list</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">User List</a>
+            <a href="userlist.php" class="nav-link">User List</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Student List</a>
           </li>
           <li class="nav-item">
             <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
@@ -48,7 +51,7 @@ error_reporting(E_ERROR | E_PARSE);
       <div class="d-flex">
         <div>
           <!-- ========== Search Form Start ========== -->
-          <?php include 'backend/alertcheckuser.php';?>
+          <?php include 'backend/alertstudent.php';?>
           <h1>Student List</h1>
           <div>
             <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Student</button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2024 at 08:56 AM
+-- Generation Time: May 20, 2024 at 07:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminID`, `adminName`, `username`, `password`) VALUES
-('21001396500', 'Admin', 'admin', '$2y$10$FMc2vNGc.sq/eKzykCRkI.y9GR1vTvDFTjvcRtOOqmQxaDH4NSMvK');
+('11111111111', 'Alden', 'alden', '$2y$10$rBXIMp50X.rmWnKOpBgIyeHe80/5Ac1RtuT.afQzc9R5hDVrdh72e'),
+('21001396500', 'penisman', 'admin', '$2y$10$EapaynYCjy8fHcYiiuqvducYB7NPxjADXJ5aS22.8ApHoHvpIiDgu');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,12 @@ CREATE TABLE `bookborrowlist` (
 
 INSERT INTO `bookborrowlist` (`refID`, `bookID`, `booktitle`, `studentID`, `studentName`, `dateborrowed`, `datedue`, `datereturned`) VALUES
 (1, '9780747548478', 'Holes', '210321515', 'Alden', '2024-05-12', '2024-05-15', '2024-05-12'),
-(2, '9781847496447', 'Moby Dick', '12313123', 'Nedla', '2024-05-12', '2024-05-15', '2024-05-12');
+(2, '9781847496447', 'Moby Dick', '12313123', 'Nedla', '2024-05-12', '2024-05-15', '2024-05-12'),
+(3, '9780747548478', 'Holes', '132132131', 'asdfjlk;', '2024-05-12', '2024-05-16', '2024-05-12'),
+(4, '9780747548478', 'Holes', '321321321321', 'Dingus Penis', '2024-05-12', '2024-05-17', '2024-05-12'),
+(5, '9780747548478', 'ASDDS', 'ASDSAD', 'ASDDAS', '2024-05-12', '2024-05-08', '2024-05-12'),
+(6, '9780747548478', 'Holes', '11111111111', 'ASDSAD', '2024-05-13', '2024-05-18', '2024-05-13'),
+(7, '9780747548478', 'Holes', '31321321321', 'Penis Dude', '2024-05-13', '2024-05-19', '2024-05-13');
 
 -- --------------------------------------------------------
 
@@ -89,7 +95,25 @@ INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished
 ('9780747548478', 'Holes', 'Louis Sachar', 'Fiction', 2000, 'ONSITE'),
 ('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018, 'ONSITE'),
 ('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018, 'ONSITE'),
-('9789719807698', 'Practical Research for Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Fiction', 2017, 'ONSITE');
+('9789719807698', 'Practical Research for Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017, 'ONSITE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studentlist`
+--
+
+CREATE TABLE `studentlist` (
+  `studentID` varchar(255) NOT NULL,
+  `studentName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `studentlist`
+--
+
+INSERT INTO `studentlist` (`studentID`, `studentName`) VALUES
+('23530015523', 'Joe Sang');
 
 --
 -- Indexes for dumped tables
@@ -115,6 +139,12 @@ ALTER TABLE `booklist`
   ADD PRIMARY KEY (`isbn`);
 
 --
+-- Indexes for table `studentlist`
+--
+ALTER TABLE `studentlist`
+  ADD PRIMARY KEY (`studentID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -122,7 +152,7 @@ ALTER TABLE `booklist`
 -- AUTO_INCREMENT for table `bookborrowlist`
 --
 ALTER TABLE `bookborrowlist`
-  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

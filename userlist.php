@@ -34,6 +34,9 @@ error_reporting(E_ERROR | E_PARSE);
             <a href="#" class="nav-link active">User List</a>
           </li>
           <li class="nav-item">
+            <a href="studentlist.php" class="nav-link">Student List</a>
+          </li>
+          <li class="nav-item">
             <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
           </li>
         </ul>

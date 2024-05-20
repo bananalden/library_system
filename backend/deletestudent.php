@@ -10,7 +10,7 @@ if (isset($_POST["deletedata"])) {
 
             if($conn->query($sql) === TRUE){
                 session_start();
-                $_SESSION['alert'] = 5;
+                $_SESSION['alert'] = 3;
                 header('location: ../studentlist.php?edit=0');
             }
 
