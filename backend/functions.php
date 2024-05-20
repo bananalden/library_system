@@ -5,6 +5,7 @@ function validateNumberDigits($number, $minDigits)
     $numberStr = (string) $number; // Convert number to string
     return strlen($numberStr) == $minDigits; // Check if the length of the string is at least $minDigits
 }
+
 function validateDateWithinCurrentYear($dateString)
 {
     $inputDate = strtotime($dateString); // Convert input date string to a Unix timestamp
@@ -33,6 +34,24 @@ function createUser($conn, $userID, $name, $username, $hashedPwd)
     mysqli_stmt_close($stmt);
     //NOTE TO PERSON WRITING THIS CODE: SEND REGISTRATION BACK TO ADMIN PAGE
     header("Location:../userlist.php?error=none");
+    exit();
+}
+
+function createStudent($conn, $studentID, $name)
+{
+    $sql = "INSERT INTO studentlist (studentID, studentName) VALUES (?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+
+        header("Location: ../studentlist.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ss", $studentID, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    //NOTE TO THE DUMBASS CODING THIS: ADD THE SESSION VALUE HERE TO DISPLAY STATUS MESSAGE THANKS
+    header("Location:../studentlist.php?error=none");
     exit();
 }
 
