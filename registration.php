@@ -1,5 +1,5 @@
 <?php 
-require 'backend/adminauthcheck.php';
+//require 'backend/adminauthcheck.php';
 
 ?>
 
