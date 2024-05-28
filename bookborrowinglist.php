@@ -87,7 +87,7 @@ error_reporting(E_ERROR | E_PARSE);
                   $run_query = mysqli_query($conn, $query);
 
                   if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
+                    foreach ($run_query as $row): 
                   ?>
 
                       <tr>
@@ -100,13 +100,15 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['datedue'] ?></td>
                         <td><?= $row['datereturned'] ?></td>
                         <td>
+                        <?php if($row['datereturned'] == '0000-00-00'): ?>
                         <button type="button" class="btn btn-success editbtn">RETURN BOOK</button>
+                        <?php else: ?>
+                          <button type="button" class="btn btn-success editbtn disabled">RETURN BOOK</button>
+                        <?php endif; ?>
                         </td>
                       </tr>
                   <?php
-
-                    }
-                  }
+                 endforeach; }
                   ?>
                 </tbody>
               </table>
