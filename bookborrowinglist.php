@@ -105,6 +105,7 @@ error_reporting(E_ERROR | E_PARSE);
                         <?php else: ?>
                           <button type="button" class="btn btn-success editbtn disabled">RETURN BOOK</button>
                         <?php endif; ?>
+                        <button type="button" class="btn btn-danger deletebtn">DELETE RECORD</button>
                         </td>
                       </tr>
                   <?php
@@ -199,14 +200,14 @@ error_reporting(E_ERROR | E_PARSE);
 
               <div class="modal-body">
 
-                <form action="backend/deletebook.php" method="post">
-                  <h4>Do you want to delete this book?</h4>
-                  <input type="hidden" name="isbn_delete" id="isbn_delete">
+                <form action="backend/deleterecord.php" method="post">
+                  <h4>Do you want to delete this record?</h4>
+                  <input type="hidden" name="refID" id="refID">
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+                <button type="submit" name="deleterecord" class="btn btn-danger">Delete Book</button>
               </div>
               </form>
             </div>
@@ -265,7 +266,7 @@ error_reporting(E_ERROR | E_PARSE);
 
         console.log(data);
 
-        $('#isbn_delete').val(data[0]);
+        $('#refID').val(data[0]);
 
       })
 

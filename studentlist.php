@@ -154,7 +154,7 @@ error_reporting(E_ERROR | E_PARSE);
                   </div>
                   <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="update_name" id="update_name" class="form-control" required></input>
+                    <input type="text" name="refID" id="update_name" class="form-control" required></input>
                   </div>
               </div>
               <div class="modal-footer">

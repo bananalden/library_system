@@ -76,7 +76,7 @@ if(isset($_SESSION['alert'])){
     case 7:
 ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>ERROR</strong> Book is already returned!
+  <strong>SUCCESS</strong> Record has been deleted!
   <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
