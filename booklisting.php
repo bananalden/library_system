@@ -225,6 +225,12 @@ error_reporting(E_ERROR | E_PARSE);
                 <form action="backend/deletebook.php" method="post">
                   <h4>Do you want to delete this book?</h4>
                   <input type="hidden" name="isbn_delete" id="isbn_delete">
+                  <input type="hidden" name="missing_title" id="missing_title">
+                  <input type="hidden" name="missing_author" id="missing_author">
+                  <input type="hidden" name="missing_category" id="missing_category">
+                  <input type="hidden" name="missing" id="isbn_delete">
+                  
+
 
               </div>
               <div class="modal-footer">

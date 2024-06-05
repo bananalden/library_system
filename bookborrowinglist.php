@@ -131,7 +131,9 @@ error_reporting(E_ERROR | E_PARSE);
               </div>
 
               <div class="modal-body">
-                <form action="backend/borrowdata.php" method="post">
+                <div class="row">
+                  <div class="row">
+                  <form action="backend/borrowdata.php" method="post">
                   <div class="form-group">
                     <label>ISBN</label>
                     <input type="number" name="isbn" class="form-control" required></input>
@@ -144,7 +146,46 @@ error_reporting(E_ERROR | E_PARSE);
                     <label>Due Date</label>
                     <input type="date" name="dueDate" class="form-control" required></input>
                   </div>
+                  </div>
+                  <div class="row">
+                  <table id="studentTable" class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require('backend/database.php');
+                  $query = "SELECT * FROM studentlist";
+                  $run_query = mysqli_query($conn, $query);
 
+                  if (mysqli_num_rows($run_query) > 0) {
+                    foreach ($run_query as $row) {
+                  ?>
+
+                      <tr>
+                        <td><?= $row['studentID'] ?></td>
+                        <td><?= $row['studentName'] ?></td>
+                        <td>
+                          <button type="button" class="btn btn-success editbtn">EDIT</button>
+                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                        </td>
+                      </tr>
+                  <?php
+
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+                  </div>
+                </div>
+              
+
+                  
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -225,6 +266,7 @@ error_reporting(E_ERROR | E_PARSE);
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable();
+      $('#studentTable').DataTable();
     });
   </script>
   <script>
