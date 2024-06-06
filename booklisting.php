@@ -310,7 +310,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="modal-body">
 
                 <form action="backend/bookfound.php" method="post">
-                  <h4>Me eating doggy doodoo</h4>
+                  <h4>Set book as found?</h4>
                   <input type="hidden" name="found_isbn" id="found_isbn">
                   <input type="hidden" name="found_title" id="found_title">
                   <input type="hidden" name="found_author" id="found_author">
