@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 07:09 PM
+-- Generation Time: Jun 06, 2024 at 02:20 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,19 +58,6 @@ CREATE TABLE `bookborrowlist` (
   `datedue` date NOT NULL,
   `datereturned` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `bookborrowlist`
---
-
-INSERT INTO `bookborrowlist` (`refID`, `bookID`, `booktitle`, `studentID`, `studentName`, `dateborrowed`, `datedue`, `datereturned`) VALUES
-(1, '9780747548478', 'Holes', '210321515', 'Alden', '2024-05-12', '2024-05-15', '2024-05-12'),
-(2, '9781847496447', 'Moby Dick', '12313123', 'Nedla', '2024-05-12', '2024-05-15', '2024-05-12'),
-(3, '9780747548478', 'Holes', '132132131', 'asdfjlk;', '2024-05-12', '2024-05-16', '2024-05-12'),
-(4, '9780747548478', 'Holes', '321321321321', 'Dingus Penis', '2024-05-12', '2024-05-17', '2024-05-12'),
-(5, '9780747548478', 'ASDDS', 'ASDSAD', 'ASDDAS', '2024-05-12', '2024-05-08', '2024-05-12'),
-(6, '9780747548478', 'Holes', '11111111111', 'ASDSAD', '2024-05-13', '2024-05-18', '2024-05-13'),
-(7, '9780747548478', 'Holes', '31321321321', 'Penis Dude', '2024-05-13', '2024-05-19', '2024-05-13');
 
 -- --------------------------------------------------------
 
@@ -152,17 +139,7 @@ ALTER TABLE `studentlist`
 -- AUTO_INCREMENT for table `bookborrowlist`
 --
 ALTER TABLE `bookborrowlist`
-  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `bookborrowlist`
---
-ALTER TABLE `bookborrowlist`
-  ADD CONSTRAINT `isbnFK` FOREIGN KEY (`bookID`) REFERENCES `booklist` (`isbn`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

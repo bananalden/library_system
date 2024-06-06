@@ -147,6 +147,7 @@ error_reporting(E_ERROR | E_PARSE);
                     <input type="date" name="dueDate" class="form-control" required></input>
                   </div>
                   </div>
+                  <div class="container">
                   <div class="row">
                   <table id="studentTable" class="table table-bordered">
                 <thead class="thead-dark">
@@ -182,6 +183,8 @@ error_reporting(E_ERROR | E_PARSE);
                 </tbody>
               </table>
                   </div>
+                  </div>
+                  
                 </div>
               
 
