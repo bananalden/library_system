@@ -112,6 +112,58 @@ error_reporting(E_ERROR | E_PARSE);
           <!-- ========== Table Section End ========== -->
 
 
+
+          <!--RECYCLE BIN TABLE -->
+          <!-- ========== Table Section Start ========== -->
+          <div class="column">
+            <div class="container">
+
+                  <h1>Recycle Bin</h1>
+              <table id="recycleTable" class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Year Published</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require('backend/database.php');
+                  $query = "SELECT * FROM recyclebin";
+                  $run_query = mysqli_query($conn, $query);
+
+                  if (mysqli_num_rows($run_query) > 0) {
+                    foreach ($run_query as $row) {
+                  ?>
+
+                      <tr>
+                        <td><?= $row['isbn'] ?></td>
+                        <td><?= $row['bookname'] ?></td>
+                        <td><?= $row['author'] ?></td>
+                        <td><?= $row['category'] ?></td>
+                        <td><?= $row['yearpublished'] ?></td>
+                        <td><?= $row['status'] ?></td>
+                        <td>
+                          <button type="button" class="btn btn-danger foundbtn">FOUND BOOK</button>
+                        </td>
+                      </tr>
+                  <?php
+
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ========== Table Section End ========== -->
+
+
         </div>
         <!-- ########################### INSERT BOOK MODAL START ##################################-->
         <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -243,6 +295,41 @@ error_reporting(E_ERROR | E_PARSE);
           </div>
         </div>
         <!-- ########################### DELETE BOOK MODAL END ##################################-->
+
+        <!-- ########################### DELETE BOOK MODAL START ##################################-->
+        <div class="modal fade" id="foundbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/deletebook.php" method="post">
+                  <h4>Me eating doggy doodoo</h4>
+                  <input type="hidden" name="isbn_delete" id="isbn_delete">
+                  <input type="hidden" name="missing_title" id="missing_title">
+                  <input type="hidden" name="missing_author" id="missing_author">
+                  <input type="hidden" name="missing_category" id="missing_category">
+                  <input type="hidden" name="missing_year" id="missing_year">
+                  <input type="hidden" name="missing_status" id="missing_status">
+                  
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ########################### DELETE BOOK MODAL END ##################################-->
       </div>
     </div>
   </section>
@@ -254,6 +341,7 @@ error_reporting(E_ERROR | E_PARSE);
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable();
+      $('#recycleTable').DataTable();
     });
   </script>
   <script>
@@ -286,6 +374,31 @@ error_reporting(E_ERROR | E_PARSE);
       $('.deletebtn').on('click', function() {
 
         $('#deletemodal').modal('show');
+
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function() {
+          return $(this).text();
+        })
+
+        console.log(data);
+
+        $('#isbn_delete').val(data[0]);
+        $('#missing_title').val(data[1]);
+        $('#missing_author').val(data[2]);
+        $('#missing_category').val(data[3])
+        $('#missing_year').val(data[4]);
+        $('#missing_status').val(data[5]);
+      })
+
+
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.foundbtn').on('click', function() {
+
+        $('#foundbtn').modal('show');
 
         $tr = $(this).closest('tr');
 
