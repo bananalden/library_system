@@ -154,7 +154,6 @@ error_reporting(E_ERROR | E_PARSE);
                   <tr>
                     <th scope="col">Student ID</th>
                     <th scope="col">Student Name</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -170,10 +169,6 @@ error_reporting(E_ERROR | E_PARSE);
                       <tr>
                         <td><?= $row['studentID'] ?></td>
                         <td><?= $row['studentName'] ?></td>
-                        <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
-                        </td>
                       </tr>
                   <?php
 
