@@ -309,21 +309,21 @@ error_reporting(E_ERROR | E_PARSE);
 
               <div class="modal-body">
 
-                <form action="backend/deletebook.php" method="post">
+                <form action="backend/bookfound.php" method="post">
                   <h4>Me eating doggy doodoo</h4>
-                  <input type="hidden" name="isbn_delete" id="isbn_delete">
-                  <input type="hidden" name="missing_title" id="missing_title">
-                  <input type="hidden" name="missing_author" id="missing_author">
-                  <input type="hidden" name="missing_category" id="missing_category">
-                  <input type="hidden" name="missing_year" id="missing_year">
-                  <input type="hidden" name="missing_status" id="missing_status">
+                  <input type="hidden" name="found_isbn" id="found_isbn">
+                  <input type="hidden" name="found_title" id="found_title">
+                  <input type="hidden" name="found_author" id="found_author">
+                  <input type="hidden" name="found_category" id="found_category">
+                  <input type="hidden" name="found_year" id="found_year">
+                  <input type="hidden" name="found_status" id="found_status">
                   
 
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+                <button type="submit" name="bookfound" class="btn btn-danger">Delete Book</button>
               </div>
               </form>
             </div>
@@ -408,12 +408,12 @@ error_reporting(E_ERROR | E_PARSE);
 
         console.log(data);
 
-        $('#isbn_delete').val(data[0]);
-        $('#missing_title').val(data[1]);
-        $('#missing_author').val(data[2]);
-        $('#missing_category').val(data[3])
-        $('#missing_year').val(data[4]);
-        $('#missing_status').val(data[5]);
+        $('#found_isbn').val(data[0]);
+        $('#found_title').val(data[1]);
+        $('#found_author').val(data[2]);
+        $('#found_category').val(data[3])
+        $('#found_year').val(data[4]);
+        $('#found_status').val(data[5]);
       })
 
 
