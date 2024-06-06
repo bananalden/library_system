@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 02:20 AM
+-- Generation Time: Jun 06, 2024 at 05:17 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -83,6 +83,21 @@ INSERT INTO `booklist` (`isbn`, `bookname`, `author`, `category`, `yearpublished
 ('9781847496447', 'Moby Dick (Evergreens)', 'Herman Melville', 'Fiction', 2018, 'ONSITE'),
 ('9786214171217', 'Kronika Ekonomiks Grade 9', 'Alfredo A. Lozanta, JR.', 'Non-Fiction', 2018, 'ONSITE'),
 ('9789719807698', 'Practical Research for Senior High School 2', 'Amadeo Pangilinan Cristobal', 'Non-Fiction', 2017, 'ONSITE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recyclebin`
+--
+
+CREATE TABLE `recyclebin` (
+  `isbn` varchar(255) NOT NULL,
+  `bookname` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `yearpublished` int(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 

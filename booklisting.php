@@ -228,7 +228,8 @@ error_reporting(E_ERROR | E_PARSE);
                   <input type="hidden" name="missing_title" id="missing_title">
                   <input type="hidden" name="missing_author" id="missing_author">
                   <input type="hidden" name="missing_category" id="missing_category">
-                  <input type="hidden" name="missing" id="isbn_delete">
+                  <input type="hidden" name="missing_year" id="missing_year">
+                  <input type="hidden" name="missing_status" id="missing_status">
                   
 
 
@@ -295,7 +296,11 @@ error_reporting(E_ERROR | E_PARSE);
         console.log(data);
 
         $('#isbn_delete').val(data[0]);
-
+        $('#missing_title').val(data[1]);
+        $('#missing_author').val(data[2]);
+        $('#missing_category').val(data[3])
+        $('#missing_year').val(data[4]);
+        $('#missing_status').val(data[5]);
       })
 
 
