@@ -109,8 +109,7 @@
                         <td><?= $row['yearpublished'] ?></td>
                         <td><?= $row['status'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
-                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
+                          <button type="button" class="btn btn-danger foundbtn">FIND BOOK</button>
                         </td>
                       </tr>
                   <?php
@@ -171,8 +170,126 @@
               </form>
             </div>
           </div>
-</div>
+        </div>
 <!------- #### INSERT BOOK MODAL #### ------>
+
+<!------- #### EDIT BOOK MODAL #### ------>
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/updatebook.php" method="post">
+                  <div class="form-group">
+                    <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title" id="title_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" name="author" id="author_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" id="category_update" class="form-control">
+                      <option value="Fiction">Fiction</option>
+                      <option value="Non-Fiction">Non-Fiction</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Year Published</label>
+                    <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+<!------- #### EDIT BOOK MODAL #### ------>
+
+<!------- #### MISSING BOOK MODAL #### ------>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/deletebook.php" method="post">
+                  <h4>Do you want to file this book as missing?</h4>
+                  <input type="hidden" name="isbn_delete" id="isbn_delete">
+                  <input type="hidden" name="missing_title" id="missing_title">
+                  <input type="hidden" name="missing_author" id="missing_author">
+                  <input type="hidden" name="missing_category" id="missing_category">
+                  <input type="hidden" name="missing_year" id="missing_year">
+                  <input type="hidden" name="missing_status" id="missing_status">
+                  
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+<!------- #### MISSING BOOK MODAL #### ------>
+
+<!------- #### FOUND BOOK MODAL #### ------>
+<div class="modal fade" id="foundbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/bookfound.php" method="post">
+                  <h4>Set book as found?</h4>
+                  <input type="hidden" name="found_isbn" id="found_isbn">
+                  <input type="hidden" name="found_title" id="found_title">
+                  <input type="hidden" name="found_author" id="found_author">
+                  <input type="hidden" name="found_category" id="found_category">
+                  <input type="hidden" name="found_year" id="found_year">
+                  <input type="hidden" name="found_status" id="found_status">
+                  
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="bookfound" class="btn btn-danger">Delete Book</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+<!------- #### FOUND BOOK MODAL #### ------>
 
 <!------- ##### SCRIPTS HERE ##### ------->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
