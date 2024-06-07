@@ -63,41 +63,7 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="container">
 
 
-              <table id="myTable" class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Admin ID</th>
-                    <th scope="col">Admin Name</th>
-                    <th scope="col">Admin Username</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require('backend/database.php');
-                  $query = "SELECT * FROM admin";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['adminID'] ?></td>
-                        <td><?= $row['adminName'] ?></td>
-                        <td><?= $row['username'] ?></td>
-                        <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
-                        </td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
+              
             </div>
           </div>
           <!-- ========== Table Section End ========== -->
