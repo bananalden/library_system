@@ -23,7 +23,7 @@ error_reporting(E_ERROR | E_PARSE);
           <li><a href="#">Admin List</a></li>
           <li><a href="#">Student List</a></li>
           <li><a href="#">Borrowing List</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="backend/userlogout.php">Log Out</a></li>
         </ul>
 </div>
 <!---- ###### NAVBAR ##### ---->
