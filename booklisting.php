@@ -1,9 +1,3 @@
-<?php 
-require 'backend/adminauthcheck.php';
-error_reporting(E_ERROR | E_PARSE);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,59 +8,33 @@ error_reporting(E_ERROR | E_PARSE);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="./css folder/booklisting.css">
+  
 </head>
 
 <body style="background-color: #f0ece2;">
-  <!-- =================NAVBAR SECTION ================-->
-  <nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container">
-      <a href="mainpage.php" class="title navbar-brand">ACLC Library System</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="mainpage.php" class="nav-link">Home Page</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link active">Book list</a>
-          </li>
-          <li class="nav-item">
-            <a href="userlist.php" class="nav-link">User List</a>
-          </li>
-          <li class="nav-item">
-            <a href="studentlist.php" class="nav-link">Student List</a>
-          </li>
-          <li class="nav-item">
-            <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
-          </li>
+<!---- ###### NAVBAR ##### ---->
+<div class="side-navbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
-        <a id="btn" class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php">Logout</a>
-  </nav>
-  </div>
-  </div>
-  </nav>
-  <!-- =================NAVBAR SECTION END================-->
-  <section class="text-dark p-5 text-left">
-    <div id="container" class="container">
-      <div class="d-flex">
-        <div>
-          <!-- ========== Search Form Start ========== -->
-          <?php include 'backend/alertbooklist.php';?>
-          <h1>Book Listings</h1>
-          <div>
-            <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal"    data-bs-target="#insertmodal">Enter new Book</button>
-          </div>
-          <!-- ========== Search Form End ========== -->
+</div>
+<!---- ###### NAVBAR ##### ---->
 
+<!---- ##### MAIN CONTENT ####---->
+<div class="content">
+<div>
+  <h1>Book Listing</h1>
+</div>
 
-
-
-          <!-- ========== Table Section Start ========== -->
-          <div class="column">
-            <div class="container">
-
-
-              <table id="myTable" class="table table-bordered">
+<div class="row">
+  <div class="col">
+  <div class="table-container">
+    <h4>Available Books</h4>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
+  <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">ISBN</th>
@@ -107,19 +75,12 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
-            </div>
-          </div>
-          <!-- ========== Table Section End ========== -->
-
-
-
-          <!--RECYCLE BIN TABLE -->
-          <!-- ========== Table Section Start ========== -->
-          <div class="column">
-            <div class="container">
-
-                  <h1>Recycle Bin</h1>
-              <table id="recycleTable" class="table table-bordered">
+      </div>
+  </div>
+  <div class="col">
+  <div class="table-container">
+  <h4>Recycle Bin</h4>
+  <table id="recycleTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">ISBN</th>
@@ -133,7 +94,6 @@ error_reporting(E_ERROR | E_PARSE);
                 </thead>
                 <tbody>
                   <?php
-                  require('backend/database.php');
                   $query = "SELECT * FROM recyclebin";
                   $run_query = mysqli_query($conn, $query);
 
@@ -149,7 +109,8 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['yearpublished'] ?></td>
                         <td><?= $row['status'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-danger foundbtn">FOUND BOOK</button>
+                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
+                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
                         </td>
                       </tr>
                   <?php
@@ -159,14 +120,14 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
-            </div>
-          </div>
-          <!-- ========== Table Section End ========== -->
+      </div>
+  </div>
+</div>
+</div>
+<!---- ##### MAIN CONTENT ####---->
 
-
-        </div>
-        <!-- ########################### INSERT BOOK MODAL START ##################################-->
-        <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!------- #### INSERT BOOK MODAL #### ------>
+<div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -210,131 +171,11 @@ error_reporting(E_ERROR | E_PARSE);
               </form>
             </div>
           </div>
-        </div>
-        <!-- ########################### INSERT BOOK MODAL END ##################################-->
+</div>
+<!------- #### INSERT BOOK MODAL #### ------>
 
-        <!-- ########################### EDIT BOOK MODAL START ##################################-->
-        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-
-                <form action="backend/updatebook.php" method="post">
-                  <div class="form-group">
-                    <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" id="title_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" id="author_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" id="category_update" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
-                  </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- ########################### EDIT BOOK MODAL END ##################################-->
-
-        <!-- ########################### DELETE BOOK MODAL START ##################################-->
-        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-
-                <form action="backend/deletebook.php" method="post">
-                  <h4>Do you want to file this book as missing?</h4>
-                  <input type="hidden" name="isbn_delete" id="isbn_delete">
-                  <input type="hidden" name="missing_title" id="missing_title">
-                  <input type="hidden" name="missing_author" id="missing_author">
-                  <input type="hidden" name="missing_category" id="missing_category">
-                  <input type="hidden" name="missing_year" id="missing_year">
-                  <input type="hidden" name="missing_status" id="missing_status">
-                  
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- ########################### DELETE BOOK MODAL END ##################################-->
-
-        <!-- ########################### DELETE BOOK MODAL START ##################################-->
-        <div class="modal fade" id="foundbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-
-                <form action="backend/bookfound.php" method="post">
-                  <h4>Set book as found?</h4>
-                  <input type="hidden" name="found_isbn" id="found_isbn">
-                  <input type="hidden" name="found_title" id="found_title">
-                  <input type="hidden" name="found_author" id="found_author">
-                  <input type="hidden" name="found_category" id="found_category">
-                  <input type="hidden" name="found_year" id="found_year">
-                  <input type="hidden" name="found_status" id="found_status">
-                  
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="bookfound" class="btn btn-danger">Delete Book</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- ########################### DELETE BOOK MODAL END ##################################-->
-      </div>
-    </div>
-  </section>
-  <!-- ######   SCRIPTS HERE     -######-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!------- ##### SCRIPTS HERE ##### ------->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -368,8 +209,7 @@ error_reporting(E_ERROR | E_PARSE);
 
     });
   </script>
-
-  <script>
+   <script>
     $(document).ready(function() {
       $('.deletebtn').on('click', function() {
 
@@ -419,8 +259,6 @@ error_reporting(E_ERROR | E_PARSE);
 
     });
   </script>
-  </script>
-  <script typ="text/javascript" src="backend/booklisting.js"></script>
-</body>
 
+</body>
 </html>
