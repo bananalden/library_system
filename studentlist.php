@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-//require 'backend/adminauthcheck.php';
+require 'backend/adminauthcheck.php';
 error_reporting(E_ERROR | E_PARSE);
 ?>
 <head>

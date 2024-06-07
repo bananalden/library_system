@@ -13,65 +13,74 @@ error_reporting(E_ERROR | E_PARSE);
   <title>User List</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="./css folder/userlist.css">
+  <link rel="stylesheet" href="./css folder/booklisting.css">
 </head>
 
 <body style="background-color: #f0ece2;">
-  <!-- =================NAVBAR SECTION ================-->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container">
-      <a href="mainpage.php" class="title navbar-brand">ACLC Library System</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="mainpage.php" class="nav-link">Home Page</a>
-          </li>
-          <li class="nav-item">
-            <a href="booklisting.php" class="nav-link">Book list</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link active">User List</a>
-          </li>
-          <li class="nav-item">
-            <a href="studentlist.php" class="nav-link">Student List</a>
-          </li>
-          <li class="nav-item">
-            <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
-          </li>
+<!---- ###### NAVBAR ##### ---->
+<div class="side-navbar">
+        <ul>
+          <li><a href="mainpage.php">Home</a></li>
+          <li><a href="booklisting.php">Book List</a></li>
+          <li><a href="#">Admin List</a></li>
+          <li><a href="studentlist.php">Student List</a></li>
+          <li><a href="bookborrowinglist.php">Borrowing List</a></li>
+          <li><a href="backend/userlogout.php">Log Out</a></li>
         </ul>
-        <a id="btn" class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php">Logout</a>
-  </nav>
+</div>
+<!---- ###### NAVBAR ##### ---->
+
+<!---- ###### MAIN CONTENT ##### ---->
+<div class="content">
+  <div class="container">
+
+    <h1>Admin List</h1>
+    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
   </div>
+
+  <div class="container">
+  <?php include 'backend/alertcheckuser.php';?>
+  <table id="myTable" class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Admin ID</th>
+                    <th scope="col">Admin Name</th>
+                    <th scope="col">Admin Username</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require('backend/database.php');
+                  $query = "SELECT * FROM admin";
+                  $run_query = mysqli_query($conn, $query);
+
+                  if (mysqli_num_rows($run_query) > 0) {
+                    foreach ($run_query as $row) {
+                  ?>
+
+                      <tr>
+                        <td><?= $row['adminID'] ?></td>
+                        <td><?= $row['adminName'] ?></td>
+                        <td><?= $row['username'] ?></td>
+                        <td>
+                          <button type="button" class="btn btn-success editbtn">EDIT</button>
+                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                        </td>
+                      </tr>
+                  <?php
+
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
   </div>
-  </nav>
-  <!-- =================NAVBAR SECTION END================-->
-  <section class="text-dark p-5 text-left">
-    <div id="container" class="container">
-      <div class="d-flex">
-        <div>
-          <!-- ========== Search Form Start ========== -->
-          <?php include 'backend/alertcheckuser.php';?>
-          <h1>Admin User List</h1>
-          <div>
-            <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
-          </div>
-          <!-- ========== Search Form End ========== -->
+</div>
+<!---- ###### MAIN CONTENT ##### ---->
 
-          <!-- ========== Table Section Start ========== -->
-          <div class="column">
-            <div class="container">
-
-
-              
-            </div>
-          </div>
-          <!-- ========== Table Section End ========== -->
-
-
-        </div>
-        <!-- ########################### INSERT USER MODAL START ##################################-->
-        <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!---- ###### CREATE ADMIN ##### ---->
+<div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -109,10 +118,10 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
         </div>
-        <!-- ########################### INSERT USER MODAL END ##################################-->
+<!---- ###### CREATE ADMIN ##### ---->
 
-        <!-- ########################### EDIT USER MODAL START ##################################-->
-        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!---- ###### EDIT ADMIN ##### ---->
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -149,10 +158,10 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
         </div>
-        <!-- ########################### EDIT USER MODAL END ##################################-->
+<!---- ###### EDIT ADMIN ##### ---->
 
-        <!-- ########################### DELETE USER MODAL START ##################################-->
-        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!---- ###### DELETE ADMIN ##### ---->
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -177,12 +186,13 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
         </div>
-        <!-- ########################### DELETE USER MODAL END ##################################-->
-      </div>
-    </div>
-  </section>
-  <!-- ######   SCRIPTS HERE     -######-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!---- ###### DELETE ADMIN ##### ---->
+
+
+
+
+<!--- #### SCRIPTS ###### ---->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -237,7 +247,6 @@ error_reporting(E_ERROR | E_PARSE);
     });
   </script>
   </script>
-  <script typ="text/javascript" src="backend/booklisting.js"></script>
+<!--- #### SCRIPTS ###### ---->
 </body>
-
 </html>
