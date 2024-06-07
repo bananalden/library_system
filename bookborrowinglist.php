@@ -242,6 +242,7 @@ error_reporting(E_ERROR | E_PARSE);
                 <form action="backend/deleterecord.php" method="post">
                   <h4>Do you want to delete this record?</h4>
                   <input type="hidden" name="refID" id="refID">
+                  <input type="hidden" name="recordisbn" id="recordisbn">
 
               </div>
               <div class="modal-footer">
@@ -307,6 +308,7 @@ error_reporting(E_ERROR | E_PARSE);
         console.log(data);
 
         $('#refID').val(data[0]);
+        $('#recordisbn').val(data[1]);
 
       })
 

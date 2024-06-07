@@ -1,21 +1,11 @@
 <?php 
 include('functions.php');
 include('database.php');
-//"2024-05-08"
 
-$date = date("Y-m-d");
-$curDate = date("Y-m-d");
+$isbn = "9780747548478";
 
-echo $date . "<br>";
-echo $curDate . "<br>";
+$value = existingBook($conn, $isbn);
 
-
-if ($date <= $curDate){
-    echo "date is less";
-}
-else{
-    echo "date is more";
-}
-
+echo $value;
 
 ?>
