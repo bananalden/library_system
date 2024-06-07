@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+//require 'backend/adminauthcheck.php';
+error_reporting(E_ERROR | E_PARSE);
+?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +18,7 @@
 <!---- ###### NAVBAR ##### ---->
 <div class="side-navbar">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="mainpage.php">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact</a></li>
@@ -25,6 +28,7 @@
 
 <!---- ##### MAIN CONTENT ####---->
 <div class="content">
+<?php include 'backend/alertbooklist.php';?>
 <div>
   <h1>Book Listing</h1>
 </div>
