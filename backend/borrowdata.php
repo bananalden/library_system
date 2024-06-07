@@ -36,7 +36,7 @@ if (isset($_POST["insertborrowdata"])){
     else{
         $sql_insert = "INSERT INTO bookborrowlist (bookID, booktitle, studentID, studentName, dateborrowed, datedue) VALUES ('$isbn', '$bookTitle','$studentID','$studentName', CURDATE(), '$dueDate');";
         $sql_update ="UPDATE booklist SET status='AWAY' WHERE isbn='$isbn';";
-
+        
         if ($conn->query($sql_insert) === TRUE)
         {
             if($conn->query($sql_update) === TRUE){
