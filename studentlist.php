@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+//require 'backend/adminauthcheck.php';
+error_reporting(E_ERROR | E_PARSE);
+?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +19,9 @@
         <ul>
           <li><a href="mainpage.php">Home</a></li>
           <li><a href="booklisting.php">Book List</a></li>
-          <li><a href="#">Admin List</a></li>
+          <li><a href="userlist.php">Admin List</a></li>
           <li><a href="#">Student List</a></li>
-          <li><a href="#">Borrowing List</a></li>
+          <li><a href="bookborrowinglist.php">Borrowing List</a></li>
           <li><a href="backend/userlogout.php">Log Out</a></li>
         </ul>
 </div>
@@ -32,6 +35,7 @@
   </div>
 
 <div class="container">
+<?php include 'backend/alertstudent.php';?>
 <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
@@ -99,9 +103,100 @@
 </div>
 <!---- ###### MAIN CONTENT ##### ---->
 
- <!------- #### INSERT BOOK MODAL #### ------>
+ <!------- #### INSERT STUDENT MODAL #### ------>
+ <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insert User Details Here</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
 
-<!------- #### INSERT BOOK MODAL #### ------>
+              <div class="modal-body">
+                <form action="backend/insertstudent.php" method="post">
+                  <div class="form-group">
+                    <label>User ID</label>
+                    <input type="number" name="studentID" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="studentName" class="form-control" required></input>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="insertuser" class="btn btn-primary">Save changes</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+<!------- #### INSERT STUDENT MODAL #### ------>
+
+<!------- #### EDIT STUDENT MODAL #### ------>
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/updatestudent.php" method="post">
+                  <div class="form-group">
+                    <input type="hidden" name="id_update" id="id_update" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="update_name" id="update_name" class="form-control" required></input>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
+              </div> 
+              </form>
+            </div>
+          </div>
+        </div>
+
+<!------- #### EDIT STUDENT MODAL #### ------>
+
+
+<!------- #### DELETE STUDENT MODAL #### ------>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <form action="backend/deletestudent.php" method="post">
+                  <h4>Do you want to delete this student?</h4>
+                  <input type="hidden" name="userid_delete" id="userid_delete">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete Student</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+<!------- #### DELETE STUDENT MODAL #### ------>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

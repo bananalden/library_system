@@ -20,9 +20,9 @@ error_reporting(E_ERROR | E_PARSE);
         <ul>
           <li><a href="mainpage.php">Home</a></li>
           <li><a href="#">Book List</a></li>
-          <li><a href="#">Admin List</a></li>
-          <li><a href="#">Student List</a></li>
-          <li><a href="#">Borrowing List</a></li>
+          <li><a href="userlist.php">Admin List</a></li>
+          <li><a href="studentlist.php">Student List</a></li>
+          <li><a href="bookborrowinglist.php">Borrowing List</a></li>
           <li><a href="backend/userlogout.php">Log Out</a></li>
         </ul>
 </div>
