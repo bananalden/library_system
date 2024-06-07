@@ -14,6 +14,12 @@ if (isset($_POST['deleterecord'])){
         header('Location: ../bookborrowinglist.php?error=nobook');
     }
 
+    else if(grabBookStatus($conn, $isbn) == "AWAY"){
+        session_start();
+        $_SESSION['alert'] = 4;
+        header('Location: ../bookborrowinglist.php?error=bookaway');
+    }
+
     else{
         
         if($conn->query($sql) == TRUE){
