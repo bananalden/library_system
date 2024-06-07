@@ -179,6 +179,46 @@ error_reporting(E_ERROR | E_PARSE);
               </table>
                   </div>
                   </div>
+                  <div class="container">
+                  <div class="row">
+                  <table id="bookTable" class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Year Published</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require('backend/database.php');
+                  $query = "SELECT * FROM booklist";
+                  $run_query = mysqli_query($conn, $query);
+
+                  if (mysqli_num_rows($run_query) > 0) {
+                    foreach ($run_query as $row) {
+                  ?>
+
+                      <tr>
+                        <td><?= $row['isbn'] ?></td>
+                        <td><?= $row['bookname'] ?></td>
+                        <td><?= $row['author'] ?></td>
+                        <td><?= $row['category'] ?></td>
+                        <td><?= $row['yearpublished'] ?></td>
+                        <td><?= $row['status'] ?></td>
+                      </tr>
+                  <?php
+
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+                  </div>
+                  </div>
                   
                 </div>
               
@@ -266,6 +306,7 @@ error_reporting(E_ERROR | E_PARSE);
     $(document).ready(function() {
       $('#myTable').DataTable();
       $('#studentTable').DataTable();
+      $('#bookTable').DataTable();
     });
   </script>
   <script>
