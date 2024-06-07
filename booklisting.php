@@ -19,9 +19,11 @@ error_reporting(E_ERROR | E_PARSE);
 <div class="side-navbar">
         <ul>
           <li><a href="mainpage.php">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">Book List</a></li>
+          <li><a href="#">Admin List</a></li>
+          <li><a href="#">Student List</a></li>
+          <li><a href="#">Borrowing List</a></li>
+          <li><a href="#">Log Out</a></li>
         </ul>
 </div>
 <!---- ###### NAVBAR ##### ---->
