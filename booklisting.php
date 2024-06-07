@@ -96,8 +96,8 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['yearpublished'] ?></td>
                         <td><?= $row['status'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
+                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
                         </td>
                       </tr>
                   <?php
@@ -275,7 +275,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="modal-body">
 
                 <form action="backend/deletebook.php" method="post">
-                  <h4>Do you want to delete this book?</h4>
+                  <h4>Do you want to file this book as missing?</h4>
                   <input type="hidden" name="isbn_delete" id="isbn_delete">
                   <input type="hidden" name="missing_title" id="missing_title">
                   <input type="hidden" name="missing_author" id="missing_author">
