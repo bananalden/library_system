@@ -18,7 +18,7 @@ if(isset($_POST['bookfound'])){
     if($conn->query($sqlINS) == TRUE){
         if($conn->query($sqlDEL) == TRUE){
             session_start();
-            $_SESSION['alert'] = 3;
+            $_SESSION['alert'] = 6;
             header('location: ../booklisting.php?delete=0');
         
         }
