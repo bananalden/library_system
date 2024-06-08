@@ -138,26 +138,26 @@ body {
 
 #about-us {
   padding: 20px;
-  margin-top: 200px;
+  margin-top: 60px;
   font-size: 25px;
   font-family: "Sedan SC", serif;
 }
 
 /****** FOOTER  ******/
 .footer {
-  background-color: #333; /* Set background color */
-  color: #fff; /* Set text color */
-  padding: 20px 0; /* Add padding */
-  text-align: center; /* Center align text */
+  background-color: #333;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
 }
 
 .container-3 {
-  max-width: 1200px; /* Set max-width */
-  margin: 0 auto; /* Center align container */
+  max-width: 1200px;
+  margin: 15px auto;
 }
 
 @media screen and (max-width: 768px) {
   .container-3 {
-    padding: 0 20px; /* Add padding to the container */
+    padding: 0 20px;
   }
 }
