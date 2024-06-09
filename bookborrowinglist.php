@@ -44,12 +44,9 @@ error_reporting(E_ERROR | E_PARSE);
 <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Borrow Book</button>
 </div>
 <!---- ###### TITLE AND INSERT ##### ---->
-
-
-<!---- ###### TABLE HERE ##### ---->
-<div class="container">
-<div class="table-container">
-<table id="myTable" class="table table-bordered">
+<div class="row">
+  <div class="table-responsive">
+  <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Reference ID</th>
@@ -96,10 +93,11 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
+  </div>
 </div>
-</div>
-<!---- ###### TABLE HERE ##### ---->
 
+
+</div>
 <!---- ###### INSERT MODAL ##### ---->
 <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-fullscreen" role="document">
@@ -198,7 +196,7 @@ error_reporting(E_ERROR | E_PARSE);
         </div>
 <!---- ###### DELETE RECORD MODAL ##### ---->
 
-</div>
+
 <!---- ###### MAIN CONTENT ##### ---->
 
 <!---- ###### SCRIPTS ##### ---->
