@@ -24,7 +24,7 @@ error_reporting(E_ERROR | E_PARSE);
         <li><a href="userlist.php"><i class="bi bi-person"></i>User List</a></li>
         <li><a href="studentlist.php"><i class="bi bi-mortarboard"></i>Student List</a></li>
         <li><a href="bookborrowinglist.php"><i class="bi bi-book"></i> Borrowing List</a></li>
-        <li><a href="backend/userlogout.php">Logout</a></li>
+        <li><a class="log-btn" href="backend/userlogout.php">Log out</a></li>
       </ul>
   </div>
 <!---- ###### NAVBAR ##### ---->
