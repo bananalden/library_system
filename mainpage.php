@@ -26,7 +26,7 @@ require 'backend/adminauthcheck.php';
         <li><a href="bookborrowinglist.php">Borrowing List</a></li>
         <li><a href="backend/userlogout.php">Logout</a></li>
       </ul>
-    </div>
+  </div>
 
     <div class="content">
         <h2>ACLC LIBRARY SYSTEM</h2>

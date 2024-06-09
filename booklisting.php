@@ -29,105 +29,110 @@ error_reporting(E_ERROR | E_PARSE);
 <!---- ###### NAVBAR ##### ---->
 
 <!---- ##### MAIN CONTENT ####---->
-<div class="content">
-<?php include 'backend/alertbooklist.php';?>
-<div>
-  <h1>Book Listing</h1>
-</div>
-
-<div class="row">
-  <div class="col">
-  <div class="table-container">
-    <h4>Available Books</h4>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
-  <table id="myTable" class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require('backend/database.php');
-                  $query = "SELECT * FROM booklist";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
-                        <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
-                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
-                        </td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
-      </div>
+<div class="container">
+  <?php include 'backend/alertbooklist.php';?>
+  <div>
+    <h1>Book Listing</h1>
   </div>
-  <div class="col">
-  <div class="table-container">
-  <h4>Recycle Bin</h4>
-  <table id="recycleTable" class="table table-bordered">
-                <thead class="thead-dark">
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="table-container">
+        <h4>Available Books</h4>
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
+        <div class="table-responsive">
+          <table id="myTable" class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Category</th>
+                <th scope="col">Year Published</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require('backend/database.php');
+              $query = "SELECT * FROM booklist";
+              $run_query = mysqli_query($conn, $query);
+
+              if (mysqli_num_rows($run_query) > 0) {
+                foreach ($run_query as $row) {
+              ?>
                   <tr>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">Action</th>
+                    <td><?= $row['isbn'] ?></td>
+                    <td><?= $row['bookname'] ?></td>
+                    <td><?= $row['author'] ?></td>
+                    <td><?= $row['category'] ?></td>
+                    <td><?= $row['yearpublished'] ?></td>
+                    <td><?= $row['status'] ?></td>
+                    <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
+                        <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
+                      </div>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $query = "SELECT * FROM recyclebin";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
-                        <td>
-                          <button type="button" class="btn btn-danger foundbtn">FIND BOOK</button>
-                        </td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
+              <?php
+                }
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="table-container">
+        <h4>Recycle Bin</h4>
+        <div class="table-responsive">
+          <table id="recycleTable" class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Category</th>
+                <th scope="col">Year Published</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $query = "SELECT * FROM recyclebin";
+              $run_query = mysqli_query($conn, $query);
+
+              if (mysqli_num_rows($run_query) > 0) {
+                foreach ($run_query as $row) {
+              ?>
+                  <tr>
+                    <td><?= $row['isbn'] ?></td>
+                    <td><?= $row['bookname'] ?></td>
+                    <td><?= $row['author'] ?></td>
+                    <td><?= $row['category'] ?></td>
+                    <td><?= $row['yearpublished'] ?></td>
+                    <td><?= $row['status'] ?></td>
+                    <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-danger foundbtn">FIND BOOK</button>
+                      </div>
+                    </td>
+                  </tr>
+              <?php
+                }
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 <!---- ##### MAIN CONTENT ####---->
 
@@ -302,86 +307,6 @@ error_reporting(E_ERROR | E_PARSE);
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#myTable').DataTable();
-      $('#recycleTable').DataTable();
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('.editbtn').on('click', function() {
-
-        $('#editmodal').modal('show');
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        })
-
-        console.log(data);
-
-        $('#isbn_update').val(data[0]);
-        $('#title_update').val(data[1]);
-        $('#author_update').val(data[2]);
-        $('#category_update').val(data[3]);
-        $('#yearpublished_update').val(data[4])
-
-      })
-
-
-    });
-  </script>
-   <script>
-    $(document).ready(function() {
-      $('.deletebtn').on('click', function() {
-
-        $('#deletemodal').modal('show');
-
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        })
-
-        console.log(data);
-
-        $('#isbn_delete').val(data[0]);
-        $('#missing_title').val(data[1]);
-        $('#missing_author').val(data[2]);
-        $('#missing_category').val(data[3])
-        $('#missing_year').val(data[4]);
-        $('#missing_status').val(data[5]);
-      })
-
-
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('.foundbtn').on('click', function() {
-
-        $('#foundbtn').modal('show');
-
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        })
-
-        console.log(data);
-
-        $('#found_isbn').val(data[0]);
-        $('#found_title').val(data[1]);
-        $('#found_author').val(data[2]);
-        $('#found_category').val(data[3])
-        $('#found_year').val(data[4]);
-        $('#found_status').val(data[5]);
-      })
-
-
-    });
-  </script>
-
+  <script src="./backend/booklist.js"></script>
 </body>
 </html>
