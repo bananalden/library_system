@@ -18,9 +18,9 @@ error_reporting(E_ERROR | E_PARSE);
 <!---- ###### NAVBAR ##### ---->
 <div class="side-navbar">
         <ul>
-        <li><a href="mainpage.php">Home</a></li>
-          <li><a href="#">Book List</a></li>
-          <li><a href="recyclebin.php">Trash</a></li>
+          <li><a href="mainpage.php">Home</a></li>
+          <li><a href="booklisting.php">Book List</a></li>
+          <li><a href="#">Trash</a></li>
           <li><a href="userlist.php">Admin List</a></li>
           <li><a href="studentlist.php">Student List</a></li>
           <li><a href="bookborrowinglist.php">Borrowing List</a></li>
@@ -39,53 +39,6 @@ error_reporting(E_ERROR | E_PARSE);
 <div class="row">
   <div class="col">
   <div class="table-container">
-    <h4>Available Books</h4>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
-  <table id="myTable" class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require('backend/database.php');
-                  $query = "SELECT * FROM booklist";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
-                        <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
-                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
-                        </td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
-      </div>
-  </div>
-  <div class="col">
-  <div class="table-container">
   <h4>Recycle Bin</h4>
   <table id="recycleTable" class="table table-bordered">
                 <thead class="thead-dark">
@@ -101,6 +54,7 @@ error_reporting(E_ERROR | E_PARSE);
                 </thead>
                 <tbody>
                   <?php
+                  require('backend/database.php');
                   $query = "SELECT * FROM recyclebin";
                   $run_query = mysqli_query($conn, $query);
 
