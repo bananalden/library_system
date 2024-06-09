@@ -34,14 +34,11 @@ error_reporting(E_ERROR | E_PARSE);
 <!---- ##### MAIN CONTENT ####---->
 <div class="content">
 <?php include 'backend/alertbooklist.php';?>
-<div class="container">
-  <h1>Book List</h1>
-  <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Add New Book</button>
-</div>
-
 <div class="row">
   <div class="col">
   <div class="table-responsive">
+  <h1>Book List</h1>
+  <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Add New Book</button>
   <table id="myTable" class="table table-bordered">
             <thead class="thead-dark">
               <tr>
