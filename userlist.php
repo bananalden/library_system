@@ -13,12 +13,12 @@ error_reporting(E_ERROR | E_PARSE);
   <title>User List</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="./css folder/booklisting.css">
+  <link rel="stylesheet" href="./css folder/admin.css">
 </head>
 
 <body style="background-color: #f0ece2;">
 <!---- ###### NAVBAR ##### ---->
-<div class="side-navbar">
+<div class="sidebar">
         <ul>
         <li><a href="mainpage.php">Home</a></li>
           <li><a href="booklisting.php">Book List</a></li>

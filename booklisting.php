@@ -16,7 +16,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 <body style="background-color: #f0ece2;">
 <!---- ###### NAVBAR ##### ---->
-<div class="side-navbar">
+<div class="sidebar">
         <ul>
         <li><a href="mainpage.php">Home</a></li>
           <li><a href="#">Book List</a></li>

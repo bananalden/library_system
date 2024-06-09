@@ -13,12 +13,12 @@ error_reporting(E_ERROR | E_PARSE);
   <title>Book Return</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="./css folder/booklisting.css">
+  <link rel="stylesheet" href="./css folder/borrowlist.css">
 </head>
 
 <body style="background-color: #f0ece2;">
 <!---- ###### NAVBAR ##### ---->
-<div class="side-navbar">
+<div class="sidebar">
         <ul>
         <li><a href="mainpage.php">Home</a></li>
           <li><a href="booklisting.php">Book List</a></li>
@@ -281,61 +281,8 @@ error_reporting(E_ERROR | E_PARSE);
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#myTable').DataTable();
-      $('#studentTable').DataTable();
-      $('#bookTable').DataTable();
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('.editbtn').on('click', function() {
-
-        $('#editmodal').modal('show');
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        })
-
-        console.log(data);
-
-        $('#ref_id').val(data[0]);
-        $('#isbn_return').val(data[1]);
-        $('#author_update').val(data[2]);
-        $('#category_update').val(data[3]);
-        $('#yearpublished_update').val(data[4])
-
-      })
-
-
-    });
-  </script>
-
-  <script>
-    $(document).ready(function() {
-      $('.deletebtn').on('click', function() {
-
-        $('#deletemodal').modal('show');
-
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        })
-
-        console.log(data);
-
-        $('#refID').val(data[0]);
-        $('#recordisbn').val(data[1]);
-
-      })
-
-
-    });
-  </script>
-  </script>
+  
+  <script src="./backend/bookborrowlist.js"></script>
   <!---- ###### SCRIPTS ##### ---->
 </body>
 </html>

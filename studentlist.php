@@ -15,7 +15,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 <body>
 <!---- ###### NAVBAR ##### ---->
-<div class="side-navbar">
+<div class="sidebar">
         <ul>
           <li><a href="mainpage.php">Home</a></li>
           <li><a href="booklisting.php">Book List</a></li>
