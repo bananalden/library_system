@@ -14,7 +14,7 @@
     <form class="container" action="backend/logcheck.php" method="post">  
 
         <div class="container-login">
-            <h1>Librarian Form</h1>
+            <h1>Librarian Login Form</h1>
         </div>
 
         <div class="user-details">
@@ -26,19 +26,6 @@
                 <input type="password" name="password" class="input-box" placeholder="Enter Password" required>
             </div>
         </div>
-
-        <div class="d-flex align-items-center justify-content-center">
-            <div class="form-check w-25 mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                    Remember me
-                </label>
-            </div>
-            <p href="#!" class="text-light" style="cursor: pointer;">Forgot password?</p>
-        </div>
-
-        <p id="register" class="small fw-bold mt-2 pt-1 mb-0 text-light">Don't have an account? <a href="#!"
-                class="link-dange" style="color:#e85c29">Register</a></p>
 
         <div class="button">
             <button type="submit" name="login" class="custom-button">Sign in</button>

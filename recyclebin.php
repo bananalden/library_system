@@ -40,7 +40,6 @@ error_reporting(E_ERROR | E_PARSE);
 <div class="row">
   <div class="col">
   <div class="table-container">
-  <h4>Recycle Bin</h4>
   <div class="table-responsive">
   <table id="recycleTable" class="table table-bordered">
                 <thead class="thead-dark">
