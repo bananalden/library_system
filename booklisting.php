@@ -103,9 +103,6 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Insert Book Details Here</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
 
               <div class="modal-body">
@@ -151,9 +148,6 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
 
               <div class="modal-body">
@@ -199,9 +193,6 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
 
               <div class="modal-body">
