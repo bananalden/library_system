@@ -35,6 +35,42 @@
   background: rgba(124, 100, 100, 0.1);
 }
 
+/**** ICONS SIDE BAR  ****/
+
+.bi-journal-bookmark {
+  position: relative;
+  bottom: 1px;
+}
+
+.bi-trash {
+  position: relative;
+  bottom: 1px;
+}
+
+.bi {
+  display: inline-block;
+  margin-right: 5px;
+}
+.bi-person {
+  position: relative;
+  bottom: 1px;
+}
+
+.bi li {
+  display: flex;
+  align-items: center;
+}
+
+.bi-mortarboard {
+  position: relative;
+  bottom: 1px;
+}
+
+.bi-book {
+  position: relative;
+  bottom: 1px;
+}
+
 /***** SIDE BAR *****/
 .sidebar {
   height: 100%;
