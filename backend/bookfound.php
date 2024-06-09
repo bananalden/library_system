@@ -19,16 +19,16 @@ if(isset($_POST['bookfound'])){
         if($conn->query($sqlDEL) == TRUE){
             session_start();
             $_SESSION['alert'] = 6;
-            header('location: ../booklisting.php?delete=0');
+            header('location: ../recyclebin.php?delete=0');
         
         }
         else{
-            header('location: ../booklisting.php?delete=1');
+            header('location: ../recyclebin.php?delete=1');
         }
    }
 
     else{
-        header('location: ../booklisting.php?delete=1');
+        header('location: ../recyclebin.php?delete=1');
     }
 }
 

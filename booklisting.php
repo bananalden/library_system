@@ -37,7 +37,6 @@ error_reporting(E_ERROR | E_PARSE);
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-6">
       <div class="table-container">
         <h4>Available Books</h4>
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
@@ -85,54 +84,9 @@ error_reporting(E_ERROR | E_PARSE);
           </table>
         </div>
       </div>
-    </div>
+  
 
-    <div class="col-12 col-md-6">
-      <div class="table-container">
-        <h4>Recycle Bin</h4>
-        <div class="table-responsive">
-          <table id="recycleTable" class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">ISBN</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Category</th>
-                <th scope="col">Year Published</th>
-                <th scope="col">STATUS</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $query = "SELECT * FROM recyclebin";
-              $run_query = mysqli_query($conn, $query);
 
-              if (mysqli_num_rows($run_query) > 0) {
-                foreach ($run_query as $row) {
-              ?>
-                  <tr>
-                    <td><?= $row['isbn'] ?></td>
-                    <td><?= $row['bookname'] ?></td>
-                    <td><?= $row['author'] ?></td>
-                    <td><?= $row['category'] ?></td>
-                    <td><?= $row['yearpublished'] ?></td>
-                    <td><?= $row['status'] ?></td>
-                    <td>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-danger foundbtn">FIND BOOK</button>
-                      </div>
-                    </td>
-                  </tr>
-              <?php
-                }
-              }
-              ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 <!---- ##### MAIN CONTENT ####---->

@@ -40,6 +40,7 @@ error_reporting(E_ERROR | E_PARSE);
   <div class="col">
   <div class="table-container">
   <h4>Recycle Bin</h4>
+  <div class="table-responsive">
   <table id="recycleTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
@@ -80,142 +81,14 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
+  </div>
+  
       </div>
   </div>
 </div>
 </div>
 <!---- ##### MAIN CONTENT ####---->
 
-<!------- #### INSERT BOOK MODAL #### ------>
-<div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Insert Book Details Here</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <form action="backend/insertbook.php" method="post">
-                  <div class="form-group">
-                    <label>ISBN</label>
-                    <input type="number" name="isbn" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="number" name="yearpublished" class="form-control" required></input>
-                  </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-<!------- #### INSERT BOOK MODAL #### ------>
-
-<!------- #### EDIT BOOK MODAL #### ------>
-<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Book Details</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-
-                <form action="backend/updatebook.php" method="post">
-                  <div class="form-group">
-                    <input type="hidden" name="isbn" id="isbn_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" name="title" id="title_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" id="author_update" class="form-control" required></input>
-                  </div>
-                  <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" id="category_update" class="form-control">
-                      <option value="Fiction">Fiction</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Year Published</label>
-                    <input type="text" name="yearpublished" id="yearpublished_update" class="form-control" required></input>
-                  </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="updatedata" class="btn btn-primary">Edit Book</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-<!------- #### EDIT BOOK MODAL #### ------>
-
-<!------- #### MISSING BOOK MODAL #### ------>
-<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-
-                <form action="backend/deletebook.php" method="post">
-                  <h4>Do you want to file this book as missing?</h4>
-                  <input type="hidden" name="isbn_delete" id="isbn_delete">
-                  <input type="hidden" name="missing_title" id="missing_title">
-                  <input type="hidden" name="missing_author" id="missing_author">
-                  <input type="hidden" name="missing_category" id="missing_category">
-                  <input type="hidden" name="missing_year" id="missing_year">
-                  <input type="hidden" name="missing_status" id="missing_status">
-                  
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="deletedata" class="btn btn-danger">Delete Book</button>
-              </div>
-              </form>
-            </div>
-          </div>
-        </div>
-<!------- #### MISSING BOOK MODAL #### ------>
 
 <!------- #### FOUND BOOK MODAL #### ------>
 <div class="modal fade" id="foundbtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
