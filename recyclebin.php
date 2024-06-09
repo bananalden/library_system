@@ -20,7 +20,7 @@ error_reporting(E_ERROR | E_PARSE);
         <ul>
           <li><a href="mainpage.php">Home</a></li>
           <li><a href="booklisting.php">Book List</a></li>
-          <li><a href="#">Trash</a></li>
+          <li><a href="recyclebin.php">Trash</a></li>
           <li><a href="userlist.php">Admin List</a></li>
           <li><a href="studentlist.php">Student List</a></li>
           <li><a href="bookborrowinglist.php">Borrowing List</a></li>
