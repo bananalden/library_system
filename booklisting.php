@@ -31,18 +31,17 @@ error_reporting(E_ERROR | E_PARSE);
 <!---- ###### NAVBAR ##### ---->
 
 <!---- ##### MAIN CONTENT ####---->
+<div class="content">
+<?php include 'backend/alertbooklist.php';?>
 <div class="container">
-  <?php include 'backend/alertbooklist.php';?>
-  <div>
-    <h1>Book Listing</h1>
-  </div>
+  <h1>Book List</h1>
+  <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Add New Book</button>
+</div>
 
-  <div class="row">
-      <div class="table-container">
-        <h4>Available Books</h4>
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#insertmodal">Enter new Book</button>
-        <div class="table-responsive">
-          <table id="myTable" class="table table-bordered">
+<div class="row">
+  <div class="col">
+  <div class="table-responsive">
+  <table id="myTable" class="table table-bordered">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ISBN</th>
@@ -83,13 +82,18 @@ error_reporting(E_ERROR | E_PARSE);
               ?>
             </tbody>
           </table>
-        </div>
-      </div>
+  </div>
+  
+  </div>
+</div>
+
+
+
+</div>
   
 
 
-  </div>
-</div>
+
 <!---- ##### MAIN CONTENT ####---->
 
 <!------- #### INSERT BOOK MODAL #### ------>
