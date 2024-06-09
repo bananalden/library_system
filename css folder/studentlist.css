@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -46,12 +47,15 @@ body {
 
 /***** SIDE BAR *****/
 .sidebar {
+  background-color: #333;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   height: 100%;
   width: 200px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #333;
   padding-top: 50px;
 }
 

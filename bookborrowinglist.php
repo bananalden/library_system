@@ -15,6 +15,8 @@ error_reporting(E_ERROR | E_PARSE);
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="./css folder/borrowlist.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  
+  
 </head>
 
 <body style="background-color: #f0ece2;">
