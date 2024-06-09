@@ -40,12 +40,13 @@ error_reporting(E_ERROR | E_PARSE);
 <!---- ###### TITLE AND INSERT ##### ---->
 <div class="container">
 <?php include 'backend/alertborrowlist.php';?>
-  <h1>Borrowing List</h1>
-<button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Borrow Book</button>
+ 
 </div>
 <!---- ###### TITLE AND INSERT ##### ---->
 <div class="row">
   <div class="table-responsive">
+  <h1>Borrowing List</h1>
+  <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Borrow Book</button>
   <table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
