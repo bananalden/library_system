@@ -102,7 +102,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 <!---- ###### INSERT MODAL ##### ---->
 <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-fullscreen" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Borrowing Book Form</h5>
@@ -112,10 +112,10 @@ error_reporting(E_ERROR | E_PARSE);
               </div>
 
               <div class="modal-body">
-                <div class="row">
-                  <div class="row">
-                  <form action="backend/borrowdata.php" method="post">
-                  <div class="form-group">
+                <div class="container">
+                  
+                <div class="form-group">
+                  <form action="./backend/borrowdata.php" method="post">
                     <label>ISBN</label>
                     <input type="number" name="isbn" class="form-control" required></input>
                   </div>
@@ -127,90 +127,15 @@ error_reporting(E_ERROR | E_PARSE);
                     <label>Due Date</label>
                     <input type="date" name="dueDate" class="form-control" required></input>
                   </div>
-                  </div>
-                  <div class="container">
-                  <div class="row">
-                  <table id="studentTable" class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Student ID</th>
-                    <th scope="col">Student Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require('backend/database.php');
-                  $query = "SELECT * FROM studentlist";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['studentID'] ?></td>
-                        <td><?= $row['studentName'] ?></td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
-                  </div>
-                  </div>
-                  <div class="container">
-                  <div class="row">
-                  <table id="bookTable" class="table table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Book Name</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  require('backend/database.php');
-                  $query = "SELECT * FROM booklist";
-                  $run_query = mysqli_query($conn, $query);
-
-                  if (mysqli_num_rows($run_query) > 0) {
-                    foreach ($run_query as $row) {
-                  ?>
-
-                      <tr>
-                        <td><?= $row['isbn'] ?></td>
-                        <td><?= $row['bookname'] ?></td>
-                        <td><?= $row['author'] ?></td>
-                        <td><?= $row['category'] ?></td>
-                        <td><?= $row['yearpublished'] ?></td>
-                        <td><?= $row['status'] ?></td>
-                      </tr>
-                  <?php
-
-                    }
-                  }
-                  ?>
-                </tbody>
-              </table>
-                  </div>
-                  </div>
-                  
                 </div>
-              
-
-                  
               </div>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" name="insertborrowdata" class="btn btn-primary">Borrow Book</button>
+                </form>
               </div>
-              </form>
+         
             </div>
           </div>
         </div>
