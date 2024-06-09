@@ -127,8 +127,9 @@ error_reporting(E_ERROR | E_PARSE);
                 </div>
               </div>
 
-              <div class="col-sm-9">
-              <table id="myTable" class="table table-bordered">
+              <div class="col-sm-9 mt-3">
+                <h4>Students</h4>
+              <table id="studentTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Student ID</th>
@@ -156,6 +157,42 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
+              </div>
+
+              <div class="col-sm-9 mt-3">
+                <h4>Books</h4>
+              <table id="bookTable" class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Category</th>
+                <th scope="col">Year Published</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require('backend/database.php');
+              $query = "SELECT * FROM booklist";
+              $run_query = mysqli_query($conn, $query);
+
+              if (mysqli_num_rows($run_query) > 0) {
+                foreach ($run_query as $row) {
+              ?>
+                  <tr>
+                    <td><?= $row['isbn'] ?></td>
+                    <td><?= $row['bookname'] ?></td>
+                    <td><?= $row['author'] ?></td>
+                    <td><?= $row['category'] ?></td>
+                    <td><?= $row['yearpublished'] ?></td>
+                  </tr>
+              <?php
+                }
+              }
+              ?>
+            </tbody>
+          </table>
               </div>
             
             </div>
