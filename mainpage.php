@@ -14,18 +14,20 @@ require 'backend/adminauthcheck.php';
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css folder/mainpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
-<div class="sidebar">
+  <div class="sidebar">
       <ul>
-      <li><a href="#">Home</a></li>
-          <li><a href="booklisting.php">Book List</a></li>
-          <li><a href="recyclebin.php">Trash</a></li>
-          <li><a href="userlist.php">Admin List</a></li>
-          <li><a href="studentlist.php">Student List</a></li>
-          <li><a href="bookborrowinglist.php">Borrowing List</a></li>
-          <li><a href="backend/userlogout.php">Log Out</a></li>
+        <li><a href="mainpage.php">Home</a></li>
+        <li><a href="booklisting.php"><i class="bi bi-journal-bookmark"></i>Book List</a></li>
+        <li><a href="recyclebin.php"><i class="bi bi-trash"></i>Trash</a></li>
+        <li><a href="userlist.php"><i class="bi bi-person"></i>User List</a></li>
+        <li><a href="studentlist.php"><i class="bi bi-mortarboard"></i>Student List</a></li>
+        <li><a href="bookborrowinglist.php"><i class="bi bi-book"></i> Borrowing List</a></li>
+        <li><a href="backend/userlogout.php">Logout</a></li>
       </ul>
   </div>
 
