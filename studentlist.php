@@ -12,6 +12,10 @@ error_reporting(E_ERROR | E_PARSE);
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="./css folder/studentlist.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 </head>
 
 <body>
@@ -33,7 +37,7 @@ error_reporting(E_ERROR | E_PARSE);
 <div class="content">
   <div class="container">
     <h1>Student List</h1>
-    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Student</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Student</button>
   </div>
 
 <div class="container">
