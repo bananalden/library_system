@@ -213,6 +213,7 @@ error_reporting(E_ERROR | E_PARSE);
       </div>
     </div>
   </div>
+            </div>
   <!---- ###### INSERT MODAL ##### ---->
 
   <!---- ###### RETURN MODAL ##### ---->
@@ -284,7 +285,8 @@ error_reporting(E_ERROR | E_PARSE);
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   
-  <script src="./backend/bookborrowlist.js"></script>
+
+<script src="./backend/bookborrowlist.js"></script>
   <!---- ###### SCRIPTS ##### ---->
 </body>
 
