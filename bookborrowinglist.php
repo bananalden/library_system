@@ -83,14 +83,18 @@ error_reporting(E_ERROR | E_PARSE);
                   <td><?= $row['dateborrowed'] ?></td>
                   <td><?= $row['datedue'] ?></td>
                   <td><?= $row['datereturned'] ?></td>
+                  
                   <td>
+                  <div class="btn-group">
                     <?php if ($row['datereturned'] == '0000-00-00') : ?>
                       <button type="button" class="btn btn-success editbtn">RETURN BOOK</button>
                     <?php else : ?>
                       <button type="button" class="btn btn-success editbtn disabled">RETURN BOOK</button>
                     <?php endif; ?>
                     <button type="button" class="btn btn-danger deletebtn">DELETE RECORD</button>
+                    </div>
                   </td>
+                  
                 </tr>
             <?php
               endforeach;
