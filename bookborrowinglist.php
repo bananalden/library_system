@@ -85,16 +85,15 @@ error_reporting(E_ERROR | E_PARSE);
                   <td><?= $row['datereturned'] ?></td>
                   
                   <td>
-                  <div class="btn-group">
-                    <?php if ($row['datereturned'] == '0000-00-00') : ?>
-                      <button type="button" class="btn btn-success editbtn">RETURN BOOK</button>
-                    <?php else : ?>
-                      <button type="button" class="btn btn-success editbtn disabled">RETURN BOOK</button>
-                    <?php endif; ?>
-                    <button type="button" class="btn btn-danger deletebtn">DELETE RECORD</button>
+                    <div class="btn-group">
+                      <?php if ($row['datereturned'] == '0000-00-00') : ?>
+                        <button type="button" class="btn-edit editbtn">RETURN BOOK</button>
+                      <?php else : ?>
+                        <button type="button" class="btn-edit editbtn" disabled>RETURN BOOK</button>
+                      <?php endif; ?>
+                      <button type="button" class="btn-delete deletebtn">DELETE RECORD</button>
                     </div>
                   </td>
-                  
                 </tr>
             <?php
               endforeach;
@@ -226,9 +225,6 @@ error_reporting(E_ERROR | E_PARSE);
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Return Book Confirmation</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
 
         <div class="modal-body">
@@ -257,9 +253,6 @@ error_reporting(E_ERROR | E_PARSE);
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
 
         <div class="modal-body">
