@@ -125,6 +125,7 @@ error_reporting(E_ERROR | E_PARSE);
                   <label>Due Date</label>
                   <input type="date" name="dueDate" class="form-control" required></input>
                 </div>
+<<<<<<< HEAD
                 <div class="row">
                   <div class="col-8 col-sm-6">
                     <h4>Students</h4>
@@ -140,6 +141,24 @@ error_reporting(E_ERROR | E_PARSE);
                         require('backend/database.php');
                         $query = "SELECT * FROM studentlist";
                         $run_query = mysqli_query($conn, $query);
+=======
+              </div>
+
+              <div class="col-sm-9 mt-3">
+                <h4>Students</h4>
+              <table id="studentTable" class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Student Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require('backend/database.php');
+                  $query = "SELECT * FROM studentlist";
+                  $run_query = mysqli_query($conn, $query);
+>>>>>>> parent of a8905cf (centered book borrowing modal)
 
                         if (mysqli_num_rows($run_query) > 0) {
                           foreach ($run_query as $row) {
@@ -151,6 +170,7 @@ error_reporting(E_ERROR | E_PARSE);
                             </tr>
                         <?php
 
+<<<<<<< HEAD
                           }
                         }
                         ?>
@@ -201,6 +221,58 @@ error_reporting(E_ERROR | E_PARSE);
 
 
         </div>
+=======
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+              </div>
+
+              <div class="col-sm-9 mt-3">
+                <h4>Books</h4>
+              <table id="bookTable" class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Category</th>
+                <th scope="col">Year Published</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require('backend/database.php');
+              $query = "SELECT * FROM booklist";
+              $run_query = mysqli_query($conn, $query);
+
+              if (mysqli_num_rows($run_query) > 0) {
+                foreach ($run_query as $row) {
+              ?>
+                  <tr>
+                    <td><?= $row['isbn'] ?></td>
+                    <td><?= $row['bookname'] ?></td>
+                    <td><?= $row['author'] ?></td>
+                    <td><?= $row['category'] ?></td>
+                    <td><?= $row['yearpublished'] ?></td>
+                  </tr>
+              <?php
+                }
+              }
+              ?>
+            </tbody>
+          </table>
+              </div>
+            
+            </div>
+              
+          
+          </div>
+
+        </div>
+
+>>>>>>> parent of a8905cf (centered book borrowing modal)
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" name="insertborrowdata" class="btn btn-primary">Borrow Book</button>
