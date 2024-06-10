@@ -124,3 +124,21 @@
 .content {
   margin-top: 160px;
 }
+
+.btn-find-book {
+  border-radius: 3px;
+  background-color: #f95959;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  color: white;
+  border: none;
+  display: flex;
+  width: 100px;
+  height: 33px;
+  padding: 5px;
+}
+
+.btn-find-book:hover {
+  background-color: #be3144;
+}

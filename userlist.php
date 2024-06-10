@@ -70,8 +70,10 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['adminName'] ?></td>
                         <td><?= $row['username'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                          <div class="btn-group">
+                            <button type="button" class="btn-edit editbtn">EDIT</button>
+                            <button type="button" class="btn-delete deletebtn">DELETE</button>
+                          </div>
                         </td>
                       </tr>
                   <?php

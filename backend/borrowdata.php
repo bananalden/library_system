@@ -47,7 +47,7 @@ if (isset($_POST["insertborrowdata"])){
         }
 
         else{
-            header('Location:../bookborrowinglist.php?error=databaseissue');
+            echo "Error updating record: " . $conn->error;
         }
 
     }

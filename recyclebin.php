@@ -76,7 +76,7 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['yearpublished'] ?></td>
                         <td><?= $row['status'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-danger foundbtn">FIND BOOK</button>
+                          <button type="button" class="btn-find-book foundbtn">FIND BOOK</button>
                         </td>
                       </tr>
                   <?php

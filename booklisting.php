@@ -71,8 +71,8 @@ error_reporting(E_ERROR | E_PARSE);
                       <td><?= $row['status'] ?></td>
                       <td>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-success editbtn">EDIT BOOK</button>
-                          <button type="button" class="btn btn-danger deletebtn">BOOK MISSING</button>
+                          <button type="button" class="btn-edit editbtn">EDIT BOOK</button>
+                          <button type="button" class="btn-delete deletebtn">BOOK MISSING</button>
                         </div>
                       </td>
                     </tr>
@@ -83,12 +83,8 @@ error_reporting(E_ERROR | E_PARSE);
               </tbody>
             </table>
           </div>
-
         </div>
       </div>
-
-
-
     </div>
   </div>
 
