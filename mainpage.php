@@ -20,6 +20,9 @@ require 'backend/adminauthcheck.php';
 
 <body>
   <div class="sidebar">
+      <div class="logo">
+        <img src="./image/aclc.jpeg" alt="logo" style="width:200px">
+      </div>
       <ul>
         <li><a href="mainpage.php">Home</a></li>
         <li><a href="booklisting.php"><i class="bi bi-journal-bookmark"></i>Book List</a></li>
