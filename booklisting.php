@@ -40,7 +40,7 @@ error_reporting(E_ERROR | E_PARSE);
         <div class="col">
           <div class="table-responsive">
             <h1>Book List</h1>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Add New Book</button>
+            <button type="button" class="btn btn-primary mt-5 mb-2" data-bs-toggle="modal" data-bs-target="#insertmodal">Add New Book</button>
             <table id="myTable" class="table table-bordered">
               <thead class="thead-dark">
                 <tr>
