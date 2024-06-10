@@ -36,6 +36,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 <!---- ##### MAIN CONTENT ####---->
 <div class="content">
+<div class="container">
 <?php include 'backend/alertbooklist.php';?>
 <div>
   <h1>Trash</h1>
@@ -89,6 +90,7 @@ error_reporting(E_ERROR | E_PARSE);
   
       </div>
   </div>
+</div>
 </div>
 </div>
 <!---- ##### MAIN CONTENT ####---->
