@@ -150,3 +150,13 @@
     padding: 12px; /* Adjust padding */
   }
 }
+
+.container h1 {
+  font-size: 35px;
+  font-family: "Sedan SC", serif;
+  text-transform: uppercase;
+}
+
+.content {
+  margin-top: 140px;
+}

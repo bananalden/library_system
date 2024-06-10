@@ -38,7 +38,7 @@ error_reporting(E_ERROR | E_PARSE);
 <div class="content">
 <div class="container">
 <?php include 'backend/alertbooklist.php';?>
-<div>
+<div class="trash mb-4">
   <h1>Trash</h1>
 </div>
 

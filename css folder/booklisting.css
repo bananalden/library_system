@@ -160,3 +160,13 @@
 h4 {
   margin-top: 20px;
 }
+
+.table-responsive h1 {
+  font-size: 35px;
+  font-family: "Sedan SC", serif;
+  text-transform: uppercase;
+}
+
+.content {
+  margin-top: 120px;
+}

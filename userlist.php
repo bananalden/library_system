@@ -41,7 +41,7 @@ error_reporting(E_ERROR | E_PARSE);
   <div class="container">
 
     <h1>Admin List</h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
+    <button type="button" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Admin</button>
   </div>
 
   <div class="container">
