@@ -109,8 +109,8 @@ error_reporting(E_ERROR | E_PARSE);
         </div>
 
         <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
+          <div class="container">
+         
               <div class="col-sm-9">
                 <div class="form-group">
                 <form action="./backend/borrowdata.php" method="post">
@@ -125,9 +125,9 @@ error_reporting(E_ERROR | E_PARSE);
                   <label>Due Date</label>
                   <input type="date" name="dueDate" class="form-control" required></input>
                 </div>
-              </div>
+            
 
-              <div class="col-sm-9 mt-3">
+            
                 <h4>Students</h4>
               <table id="studentTable" class="table table-bordered">
                 <thead class="thead-dark">
@@ -157,9 +157,8 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
-              </div>
-
-              <div class="col-sm-9 mt-3">
+           
+           
                 <h4>Books</h4>
               <table id="bookTable" class="table table-bordered">
             <thead class="thead-dark">
@@ -193,9 +192,9 @@ error_reporting(E_ERROR | E_PARSE);
               ?>
             </tbody>
           </table>
-              </div>
+         
             
-            </div>
+            
               
           
           </div>
