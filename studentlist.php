@@ -1,69 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php 
 require 'backend/adminauthcheck.php';
 error_reporting(E_ERROR | E_PARSE);
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User List</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="./css folder/userlist.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="./css folder/studentlist.css">
+  
 </head>
 
 <body>
-  <!-- =================NAVBAR SECTION ================-->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container">
-      <a href="mainpage.php" class="title navbar-brand">ACLC Library System</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="mainpage.php" class="nav-link">Home Page</a>
-          </li>
-          <li class="nav-item">
-            <a href="booklisting.php" class="nav-link">Book list</a>
-          </li>
-          <li class="nav-item">
-            <a href="userlist.php" class="nav-link">User List</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link active">Student List</a>
-          </li>
-          <li class="nav-item">
-            <a href="bookborrowinglist.php" class="nav-link">Borrowing List</a>
-          </li>
-        </ul>
-        <a class="nav-item mr-3 nav-link p-3 text-light" href="backend/userlogout.php" style="background-color: #e85c29">Logout</a>
-  </nav>
+<!---- ###### NAVBAR ##### ---->
+<div class="sidebar">
+      <div class="logo">
+        <img src="./image/aclc.jpeg" alt="logo" style="width:200px">
+      </div>
+      <ul>
+        <li><a href="mainpage.php">Home</a></li>
+        <li><a href="booklisting.php"><i class="bi bi-journal-bookmark"></i>Book List</a></li>
+        <li><a href="recyclebin.php"><i class="bi bi-trash"></i>Trash</a></li>
+        <li><a href="userlist.php"><i class="bi bi-person"></i>User List</a></li>
+        <li><a href="studentlist.php"><i class="bi bi-mortarboard"></i>Student List</a></li>
+        <li><a href="bookborrowinglist.php"><i class="bi bi-book"></i> Borrowing List</a></li>
+        <li><a class="log-btn" href="backend/userlogout.php">Log out</a></li>
+      </ul>
   </div>
+<!---- ###### NAVBAR ##### ---->
+
+<!---- ###### MAIN CONTENT ##### ---->
+<div class="content">
+  <div class="container">
+    <h1>Student List</h1>
+    <button type="button" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Student</button>
   </div>
-  </nav>
-  <!-- =================NAVBAR SECTION END================-->
-  <section class="bg-light text-dark p-5 text-left">
-    <div class="container">
-      <div class="d-flex">
-        <div>
-          <!-- ========== Search Form Start ========== -->
-          <?php include 'backend/alertstudent.php';?>
-          <h1>Student List</h1>
-          <div>
-            <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#insertmodal">Insert New Student</button>
-          </div>
-          <!-- ========== Search Form End ========== -->
 
-          <!-- ========== Table Section Start ========== -->
-          <div class="column">
-            <div class="container">
-
-
-              <table id="myTable" class="table table-bordered">
+<div class="container">
+<?php include 'backend/alertstudent.php';?>
+<table id="myTable" class="table table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Student ID</th>
@@ -85,8 +68,10 @@ error_reporting(E_ERROR | E_PARSE);
                         <td><?= $row['studentID'] ?></td>
                         <td><?= $row['studentName'] ?></td>
                         <td>
-                          <button type="button" class="btn btn-success editbtn">EDIT</button>
-                          <button type="button" class="btn btn-danger deletebtn">DELETE</button>
+                          <div class="btn-group">
+                            <button type="button" class="btn-edit editbtn">EDIT</button>
+                            <button type="button" class="btn-delete deletebtn">DELETE</button>
+                          </div>
                         </td>
                       </tr>
                   <?php
@@ -96,14 +81,39 @@ error_reporting(E_ERROR | E_PARSE);
                   ?>
                 </tbody>
               </table>
+</div>
+<div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insert User Details Here</h5>
+              </div>
+
+              <div class="modal-body">
+                <form action="backend/insertstudent.php" method="post">
+                  <div class="form-group">
+                    <label>User ID</label>
+                    <input type="number" name="studentID" class="form-control" required></input>
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="studentName" class="form-control" required></input>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="insertuser" class="btn btn-primary">Save changes</button>
+              </div>
+              </form>
             </div>
           </div>
-          <!-- ========== Table Section End ========== -->
-
-
         </div>
-        <!-- ########################### INSERT USER MODAL START ##################################-->
-        <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</div>
+<!---- ###### MAIN CONTENT ##### ---->
+
+ <!------- #### INSERT STUDENT MODAL #### ------>
+ <div class="modal fade" id="insertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -133,10 +143,10 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
         </div>
-        <!-- ########################### INSERT USER MODAL END ##################################-->
+<!------- #### INSERT STUDENT MODAL #### ------>
 
-        <!-- ########################### EDIT USER MODAL START ##################################-->
-        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!------- #### EDIT STUDENT MODAL #### ------>
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -154,51 +164,47 @@ error_reporting(E_ERROR | E_PARSE);
                   </div>
                   <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="refID" id="update_name" class="form-control" required></input>
+                    <input type="text" name="update_name" id="update_name" class="form-control" required></input>
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" name="updatedata" class="btn btn-primary">Save Edit</button>
-              </div>
+              </div> 
               </form>
             </div>
           </div>
         </div>
-        <!-- ########################### EDIT USER MODAL END ##################################-->
 
-        <!-- ########################### DELETE USER MODAL START ##################################-->
-        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!------- #### EDIT STUDENT MODAL #### ------>
+
+
+<!------- #### DELETE STUDENT MODAL #### ------>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
 
               <div class="modal-body">
 
                 <form action="backend/deletestudent.php" method="post">
-                  <h4>Do you want to delete this user?</h4>
+                  <h4>Do you want to delete this student?</h4>
                   <input type="hidden" name="userid_delete" id="userid_delete">
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="deletedata" class="btn btn-danger">Delete User</button>
+                <button type="submit" name="deletedata" class="btn btn-danger">Delete Student</button>
               </div>
               </form>
             </div>
           </div>
         </div>
-        <!-- ########################### DELETE USER MODAL END ##################################-->
-      </div>
-    </div>
-  </section>
-  <!-- ######   SCRIPTS HERE     -######-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!------- #### DELETE STUDENT MODAL #### ------>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -253,7 +259,4 @@ error_reporting(E_ERROR | E_PARSE);
     });
   </script>
   </script>
-  <script typ="text/javascript" src="backend/booklisting.js"></script>
-</body>
-
 </html>

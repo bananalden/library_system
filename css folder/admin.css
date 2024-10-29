@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+
 .title {
   font-size: 30px;
   font-family: "Sedan SC", serif;
@@ -78,7 +79,6 @@
 }
 
 /***** SIDE BAR *****/
-
 .sidebar .logo {
   margin-bottom: 20px;
   width: 100%;
@@ -164,7 +164,7 @@
   }
 }
 
-.table-responsive h1 {
+.container h1 {
   font-size: 35px;
   font-family: "Sedan SC", serif;
   text-transform: uppercase;
@@ -177,8 +177,10 @@
 .btn-group,
 .btn-edit,
 .btn-delete {
+  position: relative;
+  left: 10%;
+  display: flex;
   gap: 10px;
-  width: 90%;
 }
 
 .btn-edit {
@@ -190,7 +192,6 @@
   padding: 5px 10px;
   color: white;
   border: none;
-  width: 250px;
 }
 
 .btn-edit:hover {

@@ -1,44 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
-}
-.title {
-  font-size: 30px;
-  font-family: "Sedan SC", serif;
-  color: #e85c29;
-}
-
-.title:hover {
-  color: #e85c29;
-}
-
-#navbar :hover {
-  color: #e85c29;
-}
-
-.nav-link {
-  color: whitesmoke;
-}
-
-#btn {
-  color: whitesmoke;
-  transition: 0.3s;
-}
-
-#btn:hover {
-  border-radius: 10px;
-  background: #e85c29;
-  color: #fff;
-  transition: 0.5s ease-in-out;
-}
-
-#container {
-  height: 55vh;
-  padding: 25px;
-  margin-top: 100px;
-  background: rgba(124, 100, 100, 0.1);
 }
 
 /**** ICONS SIDE BAR  ****/
@@ -78,7 +41,6 @@
 }
 
 /***** SIDE BAR *****/
-
 .sidebar .logo {
   margin-bottom: 20px;
   width: 100%;
@@ -164,52 +126,32 @@
   }
 }
 
-.table-responsive h1 {
+/* MAIN CONTENT */
+
+.trash h1 {
   font-size: 35px;
   font-family: "Sedan SC", serif;
   text-transform: uppercase;
 }
 
 .content {
-  margin-top: 140px;
+  margin-top: 160px;
 }
 
-.btn-group,
-.btn-edit,
-.btn-delete {
-  gap: 10px;
-  width: 90%;
-}
-
-.btn-edit {
-  border-radius: 3px;
-  background-color: #42b883;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  padding: 5px 10px;
-  color: white;
-  border: none;
-  width: 250px;
-}
-
-.btn-edit:hover {
-  background-color: #347474;
-  cursor: pointer;
-}
-
-.btn-delete {
+.btn-find-book {
   border-radius: 3px;
   background-color: #f95959;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   font-family: "Poppins", sans-serif;
   font-weight: 100;
-  padding: 5px 10px;
   color: white;
   border: none;
+  display: flex;
+  width: 100px;
+  height: 33px;
+  padding: 5px;
 }
 
-.btn-delete:hover {
+.btn-find-book:hover {
   background-color: #be3144;
-  cursor: pointer;
 }

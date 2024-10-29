@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
-  font-family: Arial, sans-serif;
   background-color: #f0ece2;
 }
 
@@ -45,8 +43,8 @@ body {
   position: relative;
   bottom: 1px;
 }
-/***** SIDE BAR *****/
 
+/***** SIDE BAR *****/
 .sidebar .logo {
   margin-bottom: 20px;
   width: 100%;
@@ -132,106 +130,53 @@ body {
   }
 }
 
-/* HOME PAGE */
-.content h2 {
-  font-size: 30px;
-  font-family: "Sedan SC", serif;
-  margin-bottom: 40px;
-  margin-left: 100px;
-}
-.image-container {
-  display: flex;
-}
-
-.image-container img {
-  width: 45%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  opacity: 0.9;
-}
-
-.p-1 {
-  margin-left: 20px; /* Add some space between the image and the text */
-  text-align: justify; /* Justify the text */
-  font-size: 25px;
-  font-family: "Sedan SC", serif;
-  margin-top: 300px;
-  margin-left: 100px;
-}
-
-/* Responsive */
-@media screen and (max-width: 600px) {
-  .image-container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    align-items: center; /* Center elements horizontally on smaller screens */
-  }
-}
-
-/* ==== ABOUT US ==== */
-
-.content h3 {
+.container h1 {
   font-size: 35px;
   font-family: "Sedan SC", serif;
-  text-align: center;
+  text-transform: uppercase;
 }
-.container {
+
+.content {
+  margin-top: 140px;
+}
+
+.btn-group,
+.btn-edit,
+.btn-delete {
+  position: relative;
+  left: 10%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  gap: 10px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 100px;
+.btn-edit {
+  border-radius: 3px;
+  background-color: #42b883;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  padding: 5px 10px;
+  color: white;
+  border: none;
 }
 
-.images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.images img {
-  width: 15vw;
-  height: 40vh;
-  object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: transform 0.3s ease;
-}
-
-.images img:hover {
-  transform: scale(0.9);
+.btn-edit:hover {
+  background-color: #347474;
   cursor: pointer;
 }
 
-#about-us {
-  padding: 20px;
-  margin-top: 60px;
-  font-size: 25px;
-  font-family: "Sedan SC", serif;
+.btn-delete {
+  border-radius: 3px;
+  background-color: #f95959;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  padding: 5px 10px;
+  color: white;
+  border: none;
 }
 
-/****** FOOTER  ******/
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 5px 0;
-  text-align: center;
-}
-
-.container-3 {
-  max-width: 1200px;
-  margin: 15px auto;
-}
-
-@media screen and (max-width: 768px) {
-  .container-3 {
-    padding: 0 20px;
-  }
+.btn-delete:hover {
+  background-color: #be3144;
+  cursor: pointer;
 }

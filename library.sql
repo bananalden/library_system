@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 05:17 AM
+-- Generation Time: Jun 10, 2024 at 08:18 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,8 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminID`, `adminName`, `username`, `password`) VALUES
-('11111111111', 'Alden', 'alden', '$2y$10$rBXIMp50X.rmWnKOpBgIyeHe80/5Ac1RtuT.afQzc9R5hDVrdh72e'),
-('21001396500', 'penisman', 'admin', '$2y$10$EapaynYCjy8fHcYiiuqvducYB7NPxjADXJ5aS22.8ApHoHvpIiDgu');
+('11111111111', 'Thirty Five Bears', 'fnaf', '$2y$10$wNCn815M.jWsciw3KUeBEeGsx3t6Eg7JGnAXVjWeBzdHqj.uRGV9y'),
+('21001396500', 'adminman', 'admin', '$2y$10$SE3fI9dAxQ0wK.E8CZVVz.lMDtr40ssAsZY0pd7vKLypoF8EwtmdG');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE `studentlist` (
 --
 
 INSERT INTO `studentlist` (`studentID`, `studentName`) VALUES
-('23530015523', 'Joe Sang');
+('23530015523', 'Sang Joe');
 
 --
 -- Indexes for dumped tables
@@ -154,7 +154,7 @@ ALTER TABLE `studentlist`
 -- AUTO_INCREMENT for table `bookborrowlist`
 --
 ALTER TABLE `bookborrowlist`
-  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `refID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
